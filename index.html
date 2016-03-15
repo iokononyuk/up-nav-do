@@ -1,0 +1,2454 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+	<meta charset="UTF-8" />
+	<link rel="shortcut icon" href="fv.png">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Up&Do</title>
+	<meta name="description" content="Draggable Dual-View Slideshow: A Slideshow with two views and content area" />
+	<meta name="keywords" content="draggable, slideshow, fullscreen, carousel, views, zoomed, 3d transform, perspective, dragdealer" />
+	<meta name="author" content="Codrops" />
+	<link rel="shortcut icon" href="http://htmlmapgenerator.ru/favicon.ico">
+	<link href='http://fonts.googleapis.com/css?family=Playfair+Display:900,400|Lato:300,400,700' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="css/demo.css" />
+	<link rel="stylesheet" type="text/css" href="css/dragdealer.css" />
+	<link rel="stylesheet" type="text/css" href="css/component.css" />
+	<script src="js/modernizr.custom.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	<link rel="stylesheet" href="css/responsive.css">
+
+
+	<link rel="stylesheet" href="css/bootstrap-theme.css">
+	<link rel="stylesheet" href="css/bootstrap.css">
+	
+
+	<link rel="stylesheet/less" type="text/css" href="css/style.less" />
+	<script src="js/less.min.js"></script>
+
+
+	<link href="owl.carousel/owl-carousel/owl.carousel.css" rel="stylesheet">
+	<link href="owl.carousel/owl-carousel/owl.theme.css" rel="stylesheet">
+
+	<link rel="stylesheet" href="css/animate.css">
+
+</head>
+<body>
+<div id="preloader"></div>
+	<script>
+	$(document).ready(function() { 
+		setTimeout(function() {$('#preloader').fadeOut('slow');}, 4500);
+	});
+	function dataUrl () {
+		var url = document.location.href;
+		$('#sourse').val(url);
+	}
+	$(window).mousemove(dataUrl);
+	</script>
+	<input type="hidden" id="sourse">
+
+<img src="img/top.svg" alt="" class="hidden-sm hidden-xs" id="to-top" width="40px">
+<div class="container">
+	
+<header id="header" class="codrops-header" style="display: none;">
+	<button class="slider-switch">Switch view</button>
+</header>
+<div id="overlay" class="overlay hide" style="dispay: none;">
+	<div class="info">
+	</div>
+</div>
+<div id="slideshow" class="dragslider">
+
+<svg version="1.1" id="hand" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="25px" height="40px" viewBox="686.877 0 546.248 864" enable-background="new 686.877 0 546.248 864"
+	 xml:space="preserve">
+<g>
+	<path fill="#fff" d="M890.246,0c-31.586,0-57.403,25.514-57.403,57.148v153.058c-10.193-9.187-23.441-14.969-38.386-14.969
+		c-15.623,0-28.871,7.139-38.386,17.357c-9.175,10.545-14.605,23.805-17.999,37.755l-50.615,204.752
+		c-0.339,0.691-0.339,1.37-0.339,2.048c-2.715,71.087,17.999,129.581,36.01,188.438c0,0.679,0.339,1.709,0.339,2.376
+		c2.036,7.478,4.412,14.63,6.8,21.429c0.679,3.406,1.697,6.46,2.715,9.527c0,2.036,1.018,4.424,2.715,5.794
+		c49.246,121.763,164.064,180.959,271.064,179.25c58.433-1.018,114.818-20.072,156.937-57.148
+		c39.404-34.689,65.899-86.056,68.954-151.361c0.327-1.018,0.679-2.376,0.327-3.745V347.29c0-31.635-25.477-57.136-57.063-57.136
+		c-14.605,0-27.853,5.442-38.046,14.629v-28.568c0-31.635-25.817-57.136-57.063-57.136c-15.963,0-30.568,6.46-40.761,17.005
+		c-7.139-23.465-28.871-40.822-54.688-40.822c-14.605,0-27.853,5.781-38.046,14.63V57.148C947.322,25.514,921.505,0,890.246,0
+		L890.246,0z M890.246,19.053c21.065,0,38.046,17.005,38.046,38.095v195.238v209.867c-0.339,5.782,5.781,10.872,11.551,9.515
+		c1.018-0.327,2.036-0.679,2.715-1.018c0.339-0.339,0.339-0.339,0.679-0.339c0.339-0.679,1.018-1.018,1.357-1.697
+		c0.679-0.339,1.358-1.03,1.697-2.048c0.679-1.018,1.018-2.036,1.018-3.054c0-0.339,0-1.03,0-1.357V252.725
+		c0-21.429,16.654-38.434,38.046-38.434c21.393,0,38.046,17.005,38.046,38.434v209.528c0,0.679,0,1.358,0.327,1.697
+		c0,1.03,0.339,2.048,1.018,2.727c0.339,1.018,0.691,1.709,1.357,2.376c0.339,0.691,1.018,1.03,1.358,1.357
+		c0.339,0,0.679,0.339,1.018,0.691c1.018,0.339,1.709,0.679,2.727,0.679c1.357,0.339,2.715,0.339,3.733,0
+		c1.03-0.327,2.048-0.679,2.727-1.018c0.339-0.339,0.679-0.339,0.679-0.339c0.691-0.679,1.018-1.018,1.709-1.697
+		c0.679-0.339,1.018-1.03,1.697-2.048c0.339-1.018,0.691-2.036,1.018-3.054c0-0.339,0-1.03,0-1.358V276.203
+		c0-21.429,16.654-38.095,38.058-38.095c21.053,0,38.046,16.666,38.046,38.095v186.062c0,0.679,0,1.358,0,1.697
+		c0.339,1.03,0.679,2.048,1.018,2.727c0.339,1.018,1.018,1.709,1.358,2.376c0.679,0.691,1.018,1.03,1.697,1.357
+		c0.339,0,0.691,0.339,1.018,0.691c0.691,0.339,1.709,0.679,2.376,0.679c1.357,0.339,2.727,0.339,4.085,0
+		c1.018-0.327,1.697-0.679,2.715-1.018c0-0.339,0.339-0.339,0.691-0.339c0.327-0.679,1.018-1.018,1.345-1.697
+		c0.691-0.339,1.358-1.03,1.709-2.048c0.679-1.018,1.018-2.036,1.018-3.054c0-0.339,0-1.03,0-1.358V347.314
+		c0-21.429,16.641-38.095,38.046-38.095c21.405,0,38.046,16.666,38.046,38.095v293.196c-0.327,0.679-0.327,1.697-0.327,2.727
+		c0,66.324-24.471,115.642-62.506,149.313c-38.034,33.671-90.359,51.355-144.695,52.046
+		c-104.285,1.709-216.715-57.827-258.834-183.008C728.219,594.233,703.772,533,706.135,458.52c0-0.339,0-0.691,0-0.691
+		l50.276-202.716c3.054-11.902,7.818-22.459,14.266-29.586c6.109-7.139,13.248-11.224,23.768-11.224
+		c21.405,0,38.386,17.005,38.386,38.434v209.528c0,0.327,0,0.679,0,1.018v59.863c0,5.103,4.412,9.854,9.515,9.854
+		c5.103,0,9.854-4.763,9.854-9.854V463.61c0-0.339,0-1.03,0-1.358V252.386V57.148C852.212,36.059,868.854,19.053,890.246,19.053
+		L890.246,19.053z"/>
+</g>
+</svg>
+	<nav class="navbar navbar-default">
+		<div class="container">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">
+					<svg version="1.1" id="logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+					width="120px" height="41px" viewBox="0 0 594.681 202.816" enable-background="new 0 0 594.681 202.816"
+					xml:space="preserve">
+					<g>
+						<path fill="#fff" d="M137.767,0.001v109.196c0,32.61-20.465,55.385-49.767,55.385s-49.766-22.775-49.766-55.385V0.001H0v109.196
+						c0,53.372,37.832,93.62,88,93.62c50.169,0,88.001-40.248,88.001-93.62V0.001H137.767z"/>
+						<polygon points="121.626,0 69.11,0 121.626,52.515 	"/>
+						<g>
+							<path fill="#fff" d="M285.376,105.398c0,8.406-2.019,14.989-5.998,19.561c-4.336,4.905-10.943,7.393-19.639,7.393
+							c-17.251,0-25.637-8.816-25.637-26.954V54.29h-5.891v52.954c0,9.647,2.762,17.18,8.199,22.378
+							c5.51,5.426,13.359,8.177,23.328,8.177c9.887,0,17.734-2.75,23.328-8.177c5.441-5.356,8.199-12.885,8.199-22.378V54.29h-5.891
+							V105.398z"/>
+							<path fill="#fff" d="M333.811,54.29H305.41v81.846h6.245V99.322h21.877c5.996,0,10.454-0.267,13.245-0.794
+							c4.965-0.921,8.982-2.803,11.947-5.6c4.429-4.255,6.675-9.81,6.675-16.511C365.399,61.734,354.771,54.29,333.811,54.29z
+							M311.655,59.736h19.405c6.108,0,10.601,0.219,13.363,0.653c9.914,1.476,14.732,6.61,14.732,15.695
+							c0,8.104-2.94,13.26-8.996,15.768c-3.143,1.343-9.609,2.023-19.216,2.023h-19.287V59.736z"/>
+							<path fill="#fff" d="M433.19,99.048l0.01-1.069h-5.785v1.06c0,7.613-1.381,13.89-4.112,18.673
+							c-2.561,4.675-6.425,8.452-11.504,11.233c-4.452,2.555-9.193,3.851-14.088,3.851c-5.82,0-10.688-1.839-14.456-5.45
+							c-3.702-3.685-5.58-8.349-5.58-13.864c0-4.552,2.164-8.953,6.445-13.091c3.28-3.278,8.706-6.439,16.119-9.397
+							c11.854-4.659,17.862-11.622,17.862-20.697c0-4.94-1.609-8.894-4.783-11.75c-3.141-2.825-7.375-4.258-12.587-4.258
+							c-5.029,0-9.307,1.384-12.738,4.132c-3.543,3.008-5.34,7.272-5.34,12.673c0,3.114,1.387,6.467,4.104,9.939
+							c2.174,2.978,4.505,4.931,6.957,5.837c-14.262,6.025-21.637,15.018-21.933,26.78c-0.166,7.315,2.414,13.373,7.667,18.007
+							c4.969,4.369,11.471,6.584,19.324,6.584c9.588,0,18.148-4.141,25.459-12.31l8.829,10.131h7.619l-12.905-15.065
+							C431.291,115.056,433.113,107.676,433.19,99.048z M400.188,59.736c3.565,0,6.501,0.993,8.729,2.95
+							c2.215,1.954,3.294,4.522,3.294,7.853c0,2.983-1.282,5.671-3.934,8.233c-2.23,2.233-4.288,3.397-6.282,3.477
+							c-0.886,0.168-1.344,0.203-1.572,0.203c-3.375,0-6.185-1.532-8.595-4.695c-2.039-2.604-3.075-5.293-3.075-7.994
+							c0-3.027,1.054-5.393,3.22-7.231C394.163,60.677,396.927,59.736,400.188,59.736z"/>
+							<path fill="#fff" d="M494.731,58.266c-5.536-2.639-14.464-3.976-26.534-3.976h-19.668v81.846h19.668
+							c11.769,0,20.689-1.335,26.524-3.972c12.325-5.703,18.576-18.117,18.576-36.895C513.297,76.797,507.054,64.35,494.731,58.266z
+							M469.182,130.689h-14.664V59.736h14.664c3.262,0,6.165,0.074,8.628,0.219c2.44,0.147,4.529,0.368,6.195,0.652
+							c5.361,0.999,9.718,2.938,12.942,5.759c6.876,6.129,10.361,15.833,10.361,28.845c0,15.998-4.859,26.626-14.436,31.587
+							C487.851,129.38,479.879,130.689,469.182,130.689z"/>
+							<path fill="#fff" d="M585.98,65.219c-6.503-8.429-16.05-12.704-28.373-12.704c-12.251,0-21.761,4.313-28.266,12.823
+							c-5.77,7.623-8.697,17.692-8.697,29.93c0,12.389,2.929,22.462,8.703,29.937c6.426,8.357,15.933,12.594,28.26,12.594
+							c12.323,0,21.868-4.235,28.373-12.593c5.774-7.478,8.701-17.551,8.701-29.938C594.681,82.958,591.756,72.851,585.98,65.219z
+							M557.607,132.352c-10.466,0-18.484-3.732-23.83-11.092c-4.74-6.569-7.142-15.333-7.142-26.048c0-10.716,2.403-19.479,7.14-26.043
+							c5.423-7.437,13.441-11.208,23.832-11.208c10.389,0,18.409,3.77,23.834,11.209c4.811,6.573,7.252,15.334,7.252,26.042
+							c0,10.782-2.403,19.544-7.14,26.046C576.203,128.619,568.147,132.352,557.607,132.352z"/>
+						</g>
+					</g>
+				</svg>
+			</a>
+			<span  class="si-icons si-icons-default hidden-xs hidden-sm">
+				<span id="menuSVG" class="si-icon si-icon-hamburger-cross" data-icon-name="hamburgerCross">
+					<svg id="svg" width="32" height="32" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+						<g>
+							<path id="svg1" fill="none" stroke="#fff" stroke-width="5" stroke-linejoin="bevel" d="m 5.0916789,20.818994 53.8166421,0"/>
+							<path id="svg2" fill="none" stroke="#fff" stroke-width="5" stroke-linejoin="bevel" d="m 5.1969746,31.909063 53.8166424,0"/>
+							<path id="svg3" fill="none" stroke="#fff" stroke-width="5" stroke-linejoin="bevel" d="m 5.0916788,42.95698 53.8166422,0"/>
+						</g>
+					</svg>
+					<svg id="cl" width="32" height="32" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+						<g>
+							<path id="svg1" fill="none" stroke="#fff" stroke-width="5" stroke-linejoin="bevel" d="M 12.972944,50.936147 51.027056,12.882035" style="stroke: rgb(255, 255, 255);"></path>
+							<path id="svg2" fill="none" stroke="#fff" stroke-width="5" stroke-linejoin="bevel" d="m 5.1969746,31.909063 53.8166424,0" style="stroke: rgb(255, 255, 255); display: none;"></path>
+							<path id="svg3" fill="none" stroke="#fff" stroke-width="5" stroke-linejoin="bevel" d="M 12.972944,12.882035 51.027056,50.936147" style="stroke: rgb(255, 255, 255);"></path>
+						</g>
+					</svg>
+				</span>
+			</span>
+			
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav navbar-right" id="site-nav">
+				<li style="height: 50px;" class="hidden-xs hidden-sm item-hidden"><a href="#" class="active-a">Обучение</a></li>
+				<li><a class="item-hidden" id="nav-item-1" href="#">Обучение</a></li>
+				<li><a class="item-hidden" id="nav-item-2" href="#">Литература</a></li>
+				<li><a class="item-hidden" id="nav-item-3" href="#">Оптика</a></li>
+				<li><a class="item-hidden" id="nav-item-4" href="#">Имплантаты</a></li>
+				<li><a class="item-hidden" id="blog" href="#">Блог</a></li>
+				<li class="hidden-xs hidden-sm"><a href="#"></a></li>
+				<li><a id="nav-item-5" href="#">
+					<svg class="hidden-xs hidden-sm" id="svgPhone" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+						 width="17px" height="20px" viewBox="0 293.884 496.589 786.116" enable-background="new 0 293.884 496.589 786.116"
+						 xml:space="preserve">
+					<g>
+						<g>
+							<path fill="#010002" d="M290.426,1030.072l0.009-138.243c-0.055-27.476-23.276-49.857-51.77-49.857h-69.638
+								c-0.981-3.415-1.993-6.959-3.044-10.697c-9.804-34.172-23.203-80.969-23.181-144.338c-0.002-63.521,13.423-110.389,23.21-144.61
+								c1.036-3.63,2.048-7.107,2.965-10.458l46.711,0.031l22.991-0.015c28.543,0,51.733-22.399,51.74-49.888l0.015-138.254
+								c0-27.465-23.228-49.857-51.77-49.857l-39.072,0.11l0.007,1.067c-14.864,1.803-29.941,5.954-44.363,12.263
+								c-13.613,6.119-25.364,13.204-35.862,21.568C34.583,395.435,0.009,499.157,0,686.833c0.009,259.4,114.335,354.135,119.323,358.16
+								c11,8.658,22.755,15.716,36.039,21.568c14.294,6.261,29.349,10.421,44.188,12.23l0.055,0.797l39.059,0.411
+								C267.174,1079.971,290.38,1057.588,290.426,1030.072z M238.678,1049.279l-17.38-0.015l-6.793-0.135
+								c-10.728-0.181-27.577-2.216-46.758-10.611c-10.841-4.814-20.493-10.595-29.279-17.512
+								c-1.083-0.893-107.787-90.82-107.796-334.173C30.668,479.915,73.703,403.719,138.393,352.93
+								c8.523-6.782,18.144-12.564,29.261-17.543c19.306-8.428,36.14-10.461,46.837-10.69l24.169-0.119
+								c11.605-0.015,21.087,8.578,21.087,19.174v138.234c-0.015,10.593-9.471,19.213-21.102,19.238l-93.31-0.046l-2.943,11.559
+								c-1.646,6.435-3.643,13.496-5.859,21.12c-10.317,35.997-24.447,85.262-24.416,153.084
+								c-0.018,67.694,14.081,116.898,24.361,152.791c2.229,7.748,4.246,14.841,5.899,21.363l2.958,11.574l93.31-0.015
+								c11.614,0.024,21.111,8.664,21.127,19.244l-0.015,138.188C259.742,1040.661,250.285,1049.279,238.678,1049.279z"/>
+						</g>
+					</g>
+					<rect x="550.914" y="293.884" fill="#010002" width="30.675" height="786.116"/>
+					</svg>&nbsp;&nbsp;<span id="phone">(073) 466-28-77</span></a></li>
+					<li><button class="header-popup" id="getconsult">
+						Получить консультацию
+					</button></li>
+			</ul>
+		</div><!-- /.navbar-collapse -->
+	</div><!-- /.container-fluid -->
+</nav>
+<div class="corner hidden-xs hidden-sm">
+		<svg version="1.1" id="corner-img" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+		width="180px" height="250px" viewBox="0 0 562.667 713.333" enable-background="new 0 0 562.667 713.333"
+		xml:space="preserve">
+		<polygon class="polygon-1" opacity="0.8" fill="none" stroke="#00ADEF" stroke-width="4" stroke-miterlimit="10" points="421.293,2.06 282.506,2.06 
+		421.293,140.847 "/>
+		<polygon class="polygon-2" opacity="0.6" fill="none" stroke="#00ADEF" stroke-width="4" stroke-miterlimit="10" points="282.506,2.06 143.72,2.06 
+		282.506,140.847 "/>
+		<polygon class="polygon-3" opacity="0.3" fill="none" stroke="#00ADEF" stroke-width="4" stroke-miterlimit="10" points="143.72,2.06 4.933,2.06 
+		143.72,140.847 "/>
+		<polygon class="polygon-4" opacity="0.3" fill="none" stroke="#00ADEF" stroke-width="4" stroke-miterlimit="10" points="421.293,279.633 
+		282.506,279.633 421.293,418.419 "/>
+		<polygon class="polygon-5" fill="none" stroke="#00ADEF" stroke-width="4" stroke-miterlimit="10" points="560.079,2.06 421.293,2.06 560.079,140.847 
+		"/>
+		<polygon class="polygon-6" opacity="0.8" fill="none" stroke="#00ADEF" stroke-width="4" stroke-miterlimit="10" points="560.079,140.847 
+		421.293,140.847 560.079,279.633 "/>
+		<polygon class="polygon-7" opacity="0.6" fill="none" stroke="#00ADEF" stroke-width="4" stroke-miterlimit="10" points="560.079,279.633 
+		421.293,279.633 560.079,418.419 "/>
+		<polygon class="polygon-8" opacity="0.6" fill="none" stroke="#00ADEF" stroke-width="4" stroke-miterlimit="10" points="421.293,140.846 
+		282.506,140.846 421.293,279.633 "/>
+		<polygon class="polygon-9" opacity="0.3" fill="none" stroke="#00ADEF" stroke-width="4" stroke-miterlimit="10" points="560.079,568.177 
+		421.293,568.177 560.079,706.963 "/>
+	</svg>
+</div>
+	<div class="timewrap">
+		<div class="time"></div>
+	</div>
+	<section class="img-dragger img-dragger-large dragdealer fadeIn wow"   data-wow-duration="2s"
+																data-wow-delay="4"
+																data-wow-offset="10"
+																data-wow-iteration="1">
+		<div class="handle">
+
+			<div class="slide" id="one" data-id="2" data-content="content-1" data-color="#1581af">
+				<div class="img-wrap"><img src="img/1.jpg" alt="img1" width="100%" height="100%" /></div>
+							<h2>Курсы и семинары<span>от лучших мировых экспертов-практиков</span></h2>
+				<div class="container">
+					<div class="row height-100" style="position: relative;">
+						<div class="col-md-12 pt-51">
+							<div class="right border-left">
+								<h3>Курсы и семинары</h3>
+								<span>от лучших мировых экспертов-практиков</span><br>
+								<p class="one-left-text">СИМПОЗИУМЫ<br>
+									КОНГРЕССЫ<br>
+									ТЕОРЕТИЧЕСКИЕ КУРСЫ<br>
+									ДЕМОНСТРАЦИОННО-ПРАКТИЧЕСКИЕ КУРСЫ<br>
+									ДИСКУССИОННЫЙ КЛУБ КВИНТЭССЕНЦИЯ УКРАИНА
+								</p>
+							</div>
+								<button id="go1" class="content-switch button-slider">узнать больше</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="slide" id="three" data-id="3" data-content="content-3" data-color="#ffd600">
+				<div class="img-wrap"><img src="img/3.jpg" alt="img3" width="100%" height="100%"/></div>
+							<h2>Профессиональная литература<span>от лучших мировых экспертов-практиков</span></h2>
+				<div class="container">
+					<div class="row height-100" style="position: relative;">
+						<div class="col-md-12 pt-51">
+							<div class="right border-left">
+								<h3>Профессиональная литература</h3>
+								<span>от лучших мировых экспертов-практиков</span>
+								<p class="one-left-text">имплантология<br>
+									ортопедия<br>
+									пародонтология<br>
+									хирургия
+								</p>
+							</div>
+								<button id="go3" class="content-switch button-slider" >Подобрать литературу</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="slide" id="four" data-id="4" data-content="content-4" data-color="#019d35">
+				<div class="img-wrap"><img src="img/4.jpg" alt="img4" width="100%" height="100%"/></div>
+							<h2>Профессиональные системы увеличения<span>для стоматологов</span></h2>
+				<div class="container height-100">
+					<div class="row height-100">
+						<div class="col-md-12"style="position: absolute;bottom: 65px;">
+							<div class="right border-left">
+								<h3>Профессиональные<br>системы увеличения</h3>
+								<span>для стоматологов
+								</span><br>
+							</div>
+								<button id="go4" class="content-switch button-slider" >Получить консультацию</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+
+			<div class="slide" id="two" data-id="1" data-content="content-2" data-color="#ef7622">
+				<div class="img-wrap"><img src="img/2.jpg" alt="img2" width="100%" height="100%"/></div>
+							<h2>Имплантаты BioHorizons<span>для стоматологов, которые заботься о эстетике своей работы и знают цену качеству</span></h2>
+				<div class="container height-100">
+					<div class="row height-100">
+						<div class="col-md-12" style="position: absolute;bottom: 65px;">
+							<div class="right border-left">
+								<h3>Имплантаты BioHorizons</h3>
+								<span>для стоматологов,<br>
+									которые заботься о эстетике своей работы<br>
+									и знают цену качеству
+								</span><br>
+							</div>
+								<button id="go2" class="content-switch button-slider">Получить консультацию</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</section><!-- /img-dragger-->
+	<!-- Content section -->
+	<section class="pages">
+		<div id="blue" class="content first" data-content="content-1">
+		<section class="back hidden-md hidden-lg">
+			<button id="back-1">ВЕРНУТЬСЯ</button>
+		</section>
+			<section class="who-we">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-4">
+							<h3 class="title">
+								Кто мы такие?
+							</h3>
+							<div class="line-title"></div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<div>
+								<img src="img/blue/kvit.png" height="45" width="346" alt="">
+							</div>
+						</div>
+						<div class="col-md-8">
+							<div class="text-right-who">
+								<p>Образовательный центр “Квинтэссенция” специализируется на обучении и повышении квалификации стоматологов и зубных техников.</p>
+								<p>Мы приглашаем именитых специалистов практиков со всего мира, разрабатываем собственные авторские курсы, практические семинары, программы сертификации и прочее.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="learning">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<h3 class="title">
+								Для кого мы организовываем обучение
+							</h3>
+							<div class="line-title"></div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-3 col-xs-6" id="cat1" data-link=".event">
+							<p class="number">1.</p>
+							<span class="number-bottom">Имплантологи</span>
+						</div>
+						<div class="col-md-3 col-xs-6" id="cat2">
+							<p class="number">2.</p>
+							<span class="number-bottom">Пародонтологи</span>
+						</div>
+						<div class="col-md-3 col-xs-6" id="cat3">
+							<p class="number">3.</p>
+							<span class="number-bottom">Хирурги</span>
+						</div>
+						<div class="col-md-3 col-xs-6" id="cat4">
+							<p class="number">4.</p>
+							<span class="number-bottom">ортопеды</span>
+						</div>
+						<div class="col-md-3 col-xs-6"  id="cat5">
+							<p class="number">5.</p>
+							<span class="number-bottom">Терапевты</span>
+						</div>
+						<div class="col-md-3 col-xs-6" id="cat6">
+							<p class="number">6.</p>
+							<span class="number-bottom">Эндодонтисты</span>
+						</div>
+						<div class="col-md-3 col-xs-6"  id="cat7">
+							<p class="number">7.</p>
+							<span class="number-bottom">Техники</span>
+						</div>
+						<div class="col-md-3 col-xs-6"  id="cat8">
+							<p class="number">8.</p>
+							<span class="number-bottom">Ортодонты</span>
+						</div>
+					</div>
+				</div>
+
+
+			</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			<section class="speakers">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<h3 class="title">
+								наши спикеры
+							</h3>
+							<div class="line-title"></div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6 pb-70">
+							<div class="col-xs-12 col-md-4">
+								<div class="speaker-wrap">
+									<p class="speaker-name text-right">Валерий<br><span>Каминский</span></p>
+									<div class="speaker-wrap-img">
+										<img src="img/blue/speaker/1.png" height="auto" width="100%" alt="">
+										<div class="overlay"></div>
+									</div>
+									
+								</div>
+							</div>
+							<div class="col-xs-12 col-md-8">
+								<p class="speaker-desc">Кандидат медицинских наук, доцент, врач-стоматолог-хирург Q:clinic
+</p> 
+							</div>
+						</div>
+						<div class="col-md-6 pb-70">
+							<div class="col-xs-12 col-md-4">
+								<div class="speaker-wrap">
+									<p class="speaker-name text-right">Джилио<br><span>Расперини</span></p>
+									<div class="speaker-wrap-img">
+										<img src="img/blue/speaker/2.png" height="auto" width="100%" alt="">
+										<div class="overlay"></div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-12 col-md-8">
+								<p class="speaker-desc">Активный член Итальянского общества пародонтологов и Европейской академии эстетической стоматологии</p> 
+							</div>
+						</div>
+						<div class="col-md-6 pb-70">
+							<div class="col-xs-12 col-md-4">
+								<div class="speaker-wrap">
+									<p class="speaker-name text-right">Джованни<br><span>Зуккели</span></p>
+									<div class="speaker-wrap-img">
+										<img src="img/blue/speaker/3.png" height="auto" width="100%" alt="">
+										<div class="overlay"></div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-12 col-md-8">
+								<p class="speaker-desc">Обладатель множества профессиональных наград за исследования в области пародонтологии.</p> 
+							</div>
+						</div>
+						<div class="col-md-6 pb-70">
+							<div class="col-xs-12 col-md-4">
+								<div class="speaker-wrap">
+									<p class="speaker-name text-right">Карло<br><span>Тинти</span></p>
+									<div class="speaker-wrap-img">
+										<img src="img/blue/speaker/4.png" height="auto" width="100%" alt="">
+										<div class="overlay"></div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-12 col-md-8">
+								<p class="speaker-desc">Окончил Миланский университет Медицины и Хирургии, активный член итальянского 
+Пародонтологического общества</p> 
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="event">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<h3 class="title">Карта ближайших мероприятий <span class="event-tab ev-ua active">В УКРАИНЕ</span> <span class="ev-all event-tab">ВСЕ</span></h3>
+							<div class="line-title"></div>
+						</div>
+					</div>
+						<div class="event-ukraine">
+							<div class="row">
+								<div class="col-md-5 padding-null pl0 min-226">
+									<div class="event-body">
+										<img src="img/blue/vertical.png" class="vertical" height="172" width="2" alt="">
+										<p class="event-name">Основы имплантологического лечения и протезирования на имплантантах</p>
+										<p class="event-n">Валерий Каминский</p>
+										<p class="event-date">5-7 февраля 2016</p>
+										<p class="event-place">Украина, Киев</p>
+										<p class="event-place">Категория</p>
+									</div>
+
+								</div>
+								<div class="col-md-7 bgf6f6f6 pr0 min-226">
+									<div class="right-text">
+										<p>В течении 3 дней будет проходить демонстрационный практический курс, на которому такие профессионалы как Пальчиков Анатолий, Дахно Лариса и Валерий Каминский расскажут вам об основах имплантологического лечения и протезирования. Участники курса прослушают лекции на такие темы: Остеоинтеграция и краткая история, Прицельные, окклюзионные, ортопантомограмма, телерентгенограмма и компьютерная осевая томография, Планирование имплантологического лечения, Планирование реабилитации и выбор конструкции, Планирование дентальной имплантации и ортопедической реабилитации на основе данных КЛКТ. Интраоперационное использование хирургического шаблона и многое другие. Не пропустите такой шанс. </p>
+										<div class="button-event-more"><button class="event-button" data-toggle="modal" data-target="#myModal" id="event2"><span>Узнать детали и стоимость</span>&nbsp;&nbsp;&nbsp;<img src="img/blue/arright.png" height="14" width="20" alt=""></button></div>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-5 padding-null pl0 min-226">
+									<div class="event-body">
+										<img src="img/blue/vertical.png" class="vertical" height="172" width="2" alt="">
+										<p class="event-name">Теоретический курс  «Устранение внутрикостных дефектов с помощью направленной тканевой регенерации»</p>
+										<p class="event-n">Карло Тинти</p>
+										<p class="event-date">15-16 февраля 2016</p>
+										<p class="event-place">Украина, Киев</p>
+										<p class="event-place">Категория</p>
+									</div>
+
+								</div>
+								<div class="col-md-7 bgf6f6f6 pr0 min-226">
+									<div class="right-text">
+										<p>Двухдневный мастер-класс  профессора Карло Тинти. В течение этих двух дней будут раскрыты такие темы как классификации дефектов, методики НТР, выбор оптимальной методики с учетом резидуальных костных стенок дефекта (от 1 до 3), хирургические вмешательства, методики сохранения сосочков, направленная костная регенерация (одновременно с имплантацией или без). Количество участников ограничено, поэтому спешите зарегистрироваться. </p>
+										<div class="button-event-more"><button class="event-button" data-toggle="modal" data-target="#myModal" id="event1"><span>Узнать детали и стоимость</span>&nbsp;&nbsp;&nbsp;<img src="img/blue/arright.png" height="14" width="20" alt=""></button></div>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-5 padding-null pl0 min-226">
+									<div class="event-body">
+										<img src="img/blue/vertical.png" class="vertical" height="172" width="2" alt="">
+										<p class="event-name">Синус Лифтинг от А до Я</p>
+										<p class="event-n">Валерий Каминский</p>
+										<p class="event-date">9 июля и 17 декабря 2016</p>
+										<p class="event-place">Украина, Киев</p>
+										<p class="event-place">Категория</p>
+									</div>
+
+								</div>
+								<div class="col-md-7 bgf6f6f6 pr0 min-226">
+									<div class="right-text">
+										<p>В ходе курса слушатели ознакомятся с необходимым инструментарием для синуса-лифтинга,  тактикой подготовки пациента (клиническая и рентгенологическая
+										оценка), выбором методики синус-лифтинга, с обзором и классификацией костных материалов для аугментации, стратегией и тактикой выбора материалов для синус-лифтинга.
+										Технические этапы проведения операций и все самое интересное только у нас. Все необходимые инструменты и оборудование вы сможете получить у нас на курсе.
+										</p>
+										<div class="button-event-more"><button class="event-button" data-toggle="modal" data-target="#myModal" id="event3"><span>Узнать детали и стоимость</span>&nbsp;&nbsp;&nbsp;<img src="img/blue/arright.png" height="14" width="20" alt=""></button></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="event-all">
+							<div class="row">
+								<div class="col-md-5 padding-null pl0 min-226">
+									<div class="event-body">
+										<img src="img/blue/vertical.png" class="vertical" height="172" width="2" alt="">
+										<p class="event-name">Пластическая хирургия на мягких тканях  полости рта в эстетической значимой зоне: устаренение десневых дефектов в области зубов и имплататов</p>
+										<p class="event-n">Джованни Зукели</p>
+										<p class="event-date">10 апреля 2016</p>
+										<p class="event-place">Алматы, Казахстан</p>
+										<p class="event-place">Категория</p>
+									</div>
+
+								</div>
+								<div class="col-md-7 bgf6f6f6 pr0 min-226">
+									<div class="right-text">
+										<p>Повышения требований пациентов к эстетическим результатам стоматологического лечения привело к необходимости совершенствования пластических хирургических вмешательств на мягких тканях полости рта. В ходе курса слушатели познакомятся с  поэтапным протоколом найболее эффективных метод устранения  рецессий, узнают об особенностях устранения рецессий в области зубов и о краткосрочном и долгосрочном исходе  обсуцждаемых хирургических вмешательств. Курсантам предоставляються все необходимые материалы и оборудование</p>
+										<div class="button-event-more"><button class="event-button" data-toggle="modal" data-target="#myModal" id="event4"><span>Узнать детали и стоимость</span>&nbsp;&nbsp;&nbsp;<img src="img/blue/arright.png" height="14" width="20" alt=""></button></div>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-5 padding-null pl0 min-226">
+									<div class="event-body">
+										<img src="img/blue/vertical.png" class="vertical" height="172" width="2" alt="">
+										<p class="event-name">Способы наложения швов в парадонтологии и имплантологии.</p>
+										<p class="event-n">Джулио Расперини</p>
+										<p class="event-date">8 апреля 2016 </p>
+										<p class="event-place">Алматы, Казахстан</p>
+										<p class="event-place">Категория</p>
+									</div>
+
+								</div>
+								<div class="col-md-7 bgf6f6f6 pr0 min-226">
+									<div class="right-text">
+										<p>На даном мастер классе, все присутвующие смогут отработать практические навыки наложения швов при таких клинических ситуациях как корональное  и аликальное смещение лоскута, фиксация соеденительно тканого трансплантата и многие другие случаи. Курсантам предоставляються все необходимые материалы и инструменты.  Более подробнеее на мастер-класее.</p>
+										<div class="button-event-more"><button class="event-button" data-toggle="modal" data-target="#myModal" id="event5"><span>Узнать детали и стоимость</span>&nbsp;&nbsp;&nbsp;<img src="img/blue/arright.png" height="14" width="20" alt=""></button></div>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-5 padding-null pl0 min-226">
+									<div class="event-body">
+										<img src="img/blue/vertical.png" class="vertical" height="172" width="2" alt="">
+										<p class="event-name">Стоматологическая реабилитация. Функция и эстетика. Реализация знаний и навыков</p>
+										<p class="event-n">Алвин Шоненберг</p>
+										<p class="event-date">7- 11 сентября 2016</p>
+										<p class="event-place">Милан, Италия</p>
+										<p class="event-place">Категория</p>
+									</div>
+
+								</div>
+								<div class="col-md-7 bgf6f6f6 pr0 min-226">
+									<div class="right-text">
+										<p>4-дневный практический курс (Бусто-Арсизио, Милан, Италия)
+										Старший преподаватель Алвин Шоненбергер. Преподаватель Алессандро Пьяззетта. В ходе курса будет организована командная работа, т.е. тесное взаимодействие зубного техника и стоматолога.
+										Вы сможете полностью изготовить реальную коронку или протез для своего пациента.
+										Каждый курсант получит сертификат частной швейцарской образовательной организации о завершении курсов последипломного образования. Курсантам предоставляются
+										все необходимые материалы и оборудование. 
+										</p>
+										<div class="button-event-more"><button class="event-button" data-toggle="modal" data-target="#myModal" id="event6"><span>Узнать детали и стоимость</span>&nbsp;&nbsp;&nbsp;<img src="img/blue/arright.png" height="14" width="20" alt=""></button></div>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-5 padding-null pl0 min-226">
+									<div class="event-body">
+										<img src="img/blue/vertical.png" class="vertical" height="172" width="2" alt="">
+										<p class="event-name">Пластическая пародонтологическая хирургия. Продвинутый курс</p>
+										<p class="event-n">Джованни Зуккелли</p>
+										<p class="event-date">21-22 июля 2016</p>
+										<p class="event-place">Роттах-Эгерн, Германия</p>
+										<p class="event-place">Категория</p>
+									</div>
+
+								</div>
+								<div class="col-md-7 bgf6f6f6 pr0 min-226">
+									<div class="right-text">
+										<p>Новый продвинутый курс Профессора Джованни Зуккелли расскажет вам о новых возможностях устранения рецессий десны в области зубов (включая видео демонстрацию обсуждаемых методик). Так же у вас будет шанс узнать о возможности устранения вертикальных внутрикостных дефектов и многое другое. В программе курса участники отработают практические упражнения по устранению рецессий. Курсантам так же предоставляются  все необходимые материалы и инструменты. 
+										Проведи два летних дня вместе с профессионалами своего дела.
+										</p>
+
+										<div class="button-event-more"><button class="event-button" data-toggle="modal" data-target="#myModal" id="event7"><span>Узнать детали и стоимость</span>&nbsp;&nbsp;&nbsp;<img src="img/blue/arright.png" height="14" width="20" alt=""></button></div>
+										
+									</div>
+								</div>
+							</div>
+						</div>
+				</div>
+			</section>
+
+			<section class="review">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<h3 class="title">Отзывы наших клиентов</h3>
+							<div class="line-title"></div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="review-carousel" id="review">
+							<div class="item">
+								<div class="col-md-6">
+									<iframe width="100%" height="315" src="https://www.youtube.com/embed/Hi_Le0A2w-w" frameborder="0" allowfullscreen></iframe>
+								</div>
+								<div class="col-md-6">
+									<div class="rev-text">
+										<p>Екатерина Шевчеко<br>
+											<span>доктор наук, стоматолог,<br>лучши стоматолог 2015</span></p>
+										</div>
+									</div>
+								</div>
+								<div class="item">
+									<div class="col-md-6">
+										<iframe width="100%" height="315" src="https://www.youtube.com/embed/Hi_Le0A2w-w" frameborder="0" allowfullscreen></iframe>
+									</div>
+									<div class="col-md-6">
+										<div class="rev-text">
+											<p>Екатерина Шевчеко<br>
+												<span>доктор наук, стоматолог,<br>лучши стоматолог 2015</span></p>
+											</div>
+										</div>
+									</div>
+									<div class="item">
+										<div class="col-md-6">
+											<iframe width="100%" height="315" src="https://www.youtube.com/embed/Hi_Le0A2w-w" frameborder="0" allowfullscreen></iframe>
+										</div>
+										<div class="col-md-6">
+											<div class="rev-text">
+												<p>Екатерина Шевчеко<br>
+													<span>доктор наук, стоматолог,<br>лучши стоматолог 2015</span></p>
+												</div>
+											</div>
+										</div>
+										<div class="item">
+											<div class="col-md-6">
+												<iframe width="100%" height="315" src="https://www.youtube.com/embed/Hi_Le0A2w-w" frameborder="0" allowfullscreen></iframe>
+											</div>
+											<div class="col-md-6">
+												<div class="rev-text">
+													<p>Екатерина Шевчеко<br>
+														<span>доктор наук, стоматолог,<br>лучши стоматолог 2015</span></p>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</section>
+
+							<section class="footer-form">
+								<div class="container">
+									<div class="row">
+										<div class="col-md-12">
+											<h3 class="title">Прокачайте свой профессионализм</h3>
+											<p class="subtitle">и предлагайте своим клиентам<br>лучшее качество, новые услуги и сервис</p>
+											<div class="line-title"></div>
+										</div>
+									</div>
+									<div class="row pt-65">
+										<div class="col-md-5 footer-left-text">
+											<p>Мы готовы проконсультировать вас по телефону, узнать больше по вашей специализации и порекомендовать именно те курсы, которые будут наиболее полезны вам прямо сейчас.</p><br>
+											<p>Оставьте свои контакты в форме и наш специалист свяжется с вами в течение нескольких часов.</p>
+										</div>
+										<div class="col-md-7">
+											<div class="contact-form">
+												<form action="javascript:void(0);" method="post" id="footer-blue">
+													<input type="text" class="inpt inpt-1" required name="name" placeholder="Ваше имя">
+													<input type="text" class="inpt inpt-2" required name="phone" placeholder="Ваш телефон">
+													<input type="email" class="inpt inpt-3" required name="email" placeholder="Ваш e-mail">
+	               						<input type="hidden" id="bookname" value="footer-form">
+													<button type="submit" class="inpt-4 pull-right" id="consultme"><span>проконсультируйте меня</span>&nbsp;&nbsp;&nbsp;<img src="img/blue/arright.png" height="14" width="20" alt=""></button>
+												</form>
+											</div>
+										</div>
+									</div>
+								</div>
+							</section> 
+
+							<footer>
+							       <div class="container">
+							         <div class="row">
+							           <div class="col-md-2 col-xs-5">
+							             <a href="#">
+							               <img src="img/footer-logo.png" height="40" width="117" alt="">
+							             </a>
+							           </div>
+							           <div class="col-md-2 col-md-offset-8  col-xs-7 text-right">
+							             <p class="footer-phone"><img src="img/phone-left.png" height="20" width="17" alt="">&nbsp;&nbsp;&nbsp;(050) 179-18-12</p>
+							           </div>
+							         </div>
+							       </div>
+							     </footer>
+
+						</div>
+
+
+						<div id="orange" class="content" data-content="content-2">
+
+
+		<section class="back hidden-md hidden-lg">
+			<button id="back-2">ВЕРНУТЬСЯ</button>
+		</section>
+							<div class="container">
+						        <div class="row">
+						          <div class="col-md-4 col-md-offset-1 text-center">
+						            <img src="img/orange/orange-1.png" height="" width="100%" alt="">
+						          </div>
+						          <div class="col-md-6 div col-md-offset-1">
+						            <div class="right-orange">
+						              <p><img src="img/orange/biohorizont.png" height="" width="242" alt=""></p>
+						              <ul>
+						                <li><span>более 40 лет исследований и наблюдения за пациентами</span></li>
+						                <li><span>уникальные решения проблем эстетики, о которых другие только говорят</span></li>
+						                <li><span>качество, которого достойны ваши клиенты</span></li>
+						                <li><span>многоуровневая поддержка и обучение стоматологов</span></li>
+						              </ul>
+						            </div>
+						          </div>
+						        </div>
+						        <div class="row">
+						          <div class="col-md-12">
+						            <p class="orange-first-text-bottom">
+						              Эстетика имплантатов спустя годы после их установки - <br>
+						              ключевая проблема, за решение которой <br>
+						              клиенты сейчас готовы платить деньги
+						            </p>
+						          </div>
+						        </div>
+						      </div>
+						      
+						      <section class="orange-tech" style="">
+						        <div class="container">
+						          <div class="row">
+						            <div class="col-md-12 text-center">
+						              <h3 class="title" style="color: #fff;">Уникальная технология BioHorizons,<br>которая решает эту проблему эстетики</h3>
+						              
+						            </div>
+						          </div>
+						        </div>
+						      </section>
+
+						      <section class="orange-three">
+						        <div class="container">
+						          <div class="row">
+						            <div class="col-md-12">
+						              <h3 class="title">Технология фиксации абатмента</h3>
+						              <div class="line-title"></div>
+						            
+						            </div>
+						          </div><br>
+						          <br>
+						          <br><br>
+						          <div class="row">
+						            <div class="col-md-5">
+						              <div class="text-three-text text-right">
+						                Laser-Lok представляет собой запатентованную, уникальную в имплантологической индустрии технологию обработки  <br>поверхности имплантата . Особая технология <br>
+										крепления головки и основе имплантата <br>
+										обеспечивает плотную фиксацию всей конструкции <br>
+										даже при длительных и интенсивных нагрузках. <br>
+										Спустя годы все крепления функционируют так же, как и <br>
+										сразу после установки <br><br>
+						                <button type="submit" class="inpt-4 pull-right" id="learn-more" data-toggle="modal" data-target="#myModal"><span>Узнать больше</span>&nbsp;&nbsp;&nbsp;<img src="img/blue/arright.png" height="14" width="20" alt=""></button>
+						              </div>
+						            </div>
+						            <div class="col-md-5 col-md-offset-1 text-center">
+						              <img src="img/orange/bolt.jpg" height="" width="318" alt="">
+						            </div>
+						          </div>
+						        </div>
+						      </section>
+
+<section class="review">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<h3 class="title">Отзывы наших клиентов</h3>
+							<div class="line-title"></div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="review-carousel review-item-page" id="review">
+							<div class="item">
+								<div class="col-md-6">
+									<iframe width="100%" height="315" src="https://www.youtube.com/embed/Hi_Le0A2w-w" frameborder="0" allowfullscreen></iframe>
+								</div>
+								<div class="col-md-6">
+									<div class="rev-text">
+										<p>Екатерина Шевчеко<br>
+											<span>доктор наук, стоматолог,<br>лучши стоматолог 2015</span></p>
+										</div>
+									</div>
+								</div>
+								<div class="item">
+									<div class="col-md-6">
+										<iframe width="100%" height="315" src="https://www.youtube.com/embed/Hi_Le0A2w-w" frameborder="0" allowfullscreen></iframe>
+									</div>
+									<div class="col-md-6">
+										<div class="rev-text">
+											<p>Екатерина Шевчеко<br>
+												<span>доктор наук, стоматолог,<br>лучши стоматолог 2015</span></p>
+											</div>
+										</div>
+									</div>
+									<div class="item">
+										<div class="col-md-6">
+											<iframe width="100%" height="315" src="https://www.youtube.com/embed/Hi_Le0A2w-w" frameborder="0" allowfullscreen></iframe>
+										</div>
+										<div class="col-md-6">
+											<div class="rev-text">
+												<p>Екатерина Шевчеко<br>
+													<span>доктор наук, стоматолог,<br>лучши стоматолог 2015</span></p>
+												</div>
+											</div>
+										</div>
+										<div class="item">
+											<div class="col-md-6">
+												<iframe width="100%" height="315" src="https://www.youtube.com/embed/Hi_Le0A2w-w" frameborder="0" allowfullscreen></iframe>
+											</div>
+											<div class="col-md-6">
+												<div class="rev-text">
+													<p>Екатерина Шевчеко<br>
+														<span>доктор наук, стоматолог,<br>лучши стоматолог 2015</span></p>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</section>
+
+						      <section class="footer-form">
+						       <div class="container">
+						         <div class="row">
+						           <div class="col-md-12">
+						             <h3 class="title">Узнайте больше о эстетике имплантатов </h3><br>
+						             <div class="line-title"></div>
+						           </div>
+						         </div>
+						         <div class="row pt-65">
+						           <div class="col-md-5 footer-left-text">
+						             <p>Узнайте больше о эстетике имплантатов 
+						                и получите развернутую презентацию исследований, решений и преимуществ имплантатов BioHorizons</p><br>
+						            <p>Оставьте свои контакты в форме справа и наш специалист вышлет вам все каталоги и свяжется с вами в течение нескольких часов.</p>
+						           </div>
+						           <div class="col-md-7">
+						             <div class="contact-form">
+						             <form action="javascript:void(0);" method="post" id="footer-orange">
+						               <input type="text" class="inpt inpt-1" required name="name" placeholder="Ваше имя">
+						               <input type="text" class="inpt inpt-2" required name="phone" placeholder="Ваш телефон">
+						               <input type="email" class="inpt inpt-3" required name="email" placeholder="Ваш e-mail">
+	               						<input type="hidden" id="bookname" value="footer-form">
+						               <button style="background: #ef7622;" type="submit" class="inpt-4 pull-right" id="consult-me-1"><span>проконсультируйте меня</span>&nbsp;&nbsp;&nbsp;<img src="img/blue/arright.png" height="14" width="20" alt=""></button>
+						              </form>
+						             </div>
+						           </div>
+						         </div>
+						       </div>
+						     </section> 
+						     <footer>
+						       <div class="container">
+						         <div class="row">
+						           <div class="col-md-2 col-xs-5">
+						             <a href="#">
+						               <img src="img/footer-logo.png" height="40" width="117" alt="">
+						             </a>
+						           </div>
+						           <div class="col-md-2 col-md-offset-8  col-xs-7 text-right">
+						             <p class="footer-phone"><img src="img/phone-left.png" height="20" width="17" alt="">&nbsp;&nbsp;&nbsp;(073) 466-28-77</p>
+						           </div>
+						         </div>
+						       </div>
+						     </footer>
+						</div>
+
+						<div id="green" class="content" data-content="content-4">
+							<section class="back hidden-md hidden-lg">
+								<button id="back-4">ВЕРНУТЬСЯ</button>
+							</section>
+							<section class="univet"> 
+							      <div class="container">
+							        <div class="row">
+							          <div class="col-md-12 text-center">
+							            <img style="width: 100%; max-width: 450px; margin: 70px 0;" src="img/green/univet.png" height="" width="" alt="">
+							          </div>
+							        </div>
+							        <div class="row">
+							          <div class="col-md-4 col-sm-6 col-xs-6 text-center">
+							            <p class="image-green"><img src="img/green/icon/1.png" height="81" width="81" alt=""></p>
+							            <p class="green-item-text">
+							              Итальянский дизайн<br><br><br>
+							            </p>
+							          </div>
+							          <div class="col-md-4 col-sm-6 col-xs-6 text-center">
+							            <p class="image-green"><img src="img/green/icon/2.png" height="81" width="81" alt=""></p>
+							            <p class="green-item-text">
+							              Полная индивидуализация<br>всех характеристик под вас<br><br>
+							            </p>
+							          </div>
+							          <div class="col-md-4 col-sm-6 col-xs-6 text-center">
+							            <p class="image-green"><img src="img/green/icon/3.png" height="81" width="81" alt=""></p>
+							            <p class="green-item-text">
+							              Дополнительная подсветка<br><br><br>
+							            </p>
+							          </div>
+							          <div class="col-md-4 col-sm-6 col-xs-6 text-center">
+							            <p class="image-green"><img src="img/green/icon/4.png" height="81" width="81" alt=""></p>
+							            <p class="green-item-text">
+							              Технология защиты<br>от лазерного излучения<br><br>
+							            </p>
+							          </div>
+							          <div class="col-md-4 col-sm-6 col-xs-6 text-center">
+							            <p class="image-green"><img src="img/green/icon/5.png" height="81" width="81" alt=""></p>
+							            <p class="green-item-text">
+							              Технология защиты<br>зрения при длительном<br>использовании
+							            </p>
+							          </div>
+							          <div class="col-md-4 col-sm-6 col-xs-6 text-center">
+							            <p class="image-green"><img src="img/green/icon/6.png" height="81" width="81" alt=""></p>
+							            <p class="green-item-text">
+							              Технология раннего<br>обнаружения раковых<br>заболеваний полости рта
+							            </p>
+							          </div>
+							        </div>
+							      </div>
+							    </section>
+
+							    <section class="learning" data-parallax="scroll" data-image-src="img/green/second.jpg">
+							      <div class="container">
+							        <div class="row">
+							          <div class="col-md-12">
+							            <h3 class="title">
+							              параметры оптики гибко подстраиваются<br>лично под вас
+							            </h3>
+							            <div class="line-title"></div>
+							            <p class="subtitle">Каждые очки изготовляются индивидуально по заранее снятым<br>с вас меркам и с учетом всех ваших пожеланий и специфике<br>работы</p>
+							          </div>
+							        </div>
+							        <div class="row">
+							          <div class="col-md-4 col-sm-6 col-xs-6">
+							            <p class="number">Рабочее расстояние</p>
+							            <span class="number-bottom">учитывает вашу привычку<br>работ сидя или стоя</span>
+							          </div>
+							          <div class="col-md-4 col-sm-6 col-xs-6">
+							            <p class="number">Глубина фокуса</p>
+							            <span class="number-bottom">учитывает вашу подвижность<br>во время выполнения процедур</span>
+							          </div>
+							          <div class="col-md-4 col-sm-6 col-xs-6">
+							            <p class="number">Поле внимание</p>
+							            <span class="number-bottom">учитывает площадь, которую<br>вам необходимо видеть под<br>увеличением для эффективной работы</span>
+							          </div>
+							          <div class="col-md-4 col-sm-6 col-xs-6">
+							            <p class="number">Увеличение<br>от 2-х до 6-ти раз </p>
+							            <span class="number-bottom">учитывает специфику<br>выполняемых вами процедур</span>
+							          </div>
+							          <div class="col-md-4 col-sm-6 col-xs-6">
+							            <p class="number">Комфортный вес<br>и размер очков</p>
+							            <span class="number-bottom">учитывает индивидуальные<br>особенности строения лица</span>
+							          </div>
+							        </div>
+							      </div>
+							    </section>
+
+							    <section class="univet-glass">
+							      <div class="container">
+							        <div class="row">
+							          <div class="col-md-12">
+							            <h3 class="title">Каждые очки UNIVET изготовляются по индивидуальному образцу специально для вас</h3>
+							            <div class="line-title"></div>
+							          </div>
+							        </div>
+							        <div class="row">
+							          <div class="col-md-5">
+							            <p class="text-glass-left text-right">
+							              В чужих очках вы не сможете работать и можете быстро подорвать зрение. Поэтому каждые очки мы наносим именную гравировку, чтобы специалисты, работающие не могли их перепутать.
+							            </p>
+							          </div>
+							          <div class="col-md-7">
+							            <div class="glass-image text-right">
+							              <img src="img/green/glass.jpg" height="" width="90%" alt="">
+							            </div>
+							          </div>
+							        </div>
+							      </div>
+							    </section>
+
+							    <section class="green-bottom-text-block" data-parallax="scroll" data-image-src="img/green/green-bottom.jpg">
+							      <div class="container">
+							        <div class="row">
+							          <div class="col-md-12">
+							            <p class="text-center">Увеличьте в разы качество своей работы, увидев детали, неразличимые для невооруженного взгляда</p>
+							          </div>
+							        </div>
+							      </div>
+							    </section>
+							    
+							    <section class="review">
+									<div class="container">
+										<div class="row">
+											<div class="col-md-12">
+												<h3 class="title">Отзывы наших клиентов</h3>
+												<div class="line-title"></div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="review-carousel review-item-page" id="review">
+												<div class="item">
+													<div class="col-md-6">
+														<iframe width="100%" height="315" src="https://www.youtube.com/embed/Hi_Le0A2w-w" frameborder="0" allowfullscreen></iframe>
+													</div>
+													<div class="col-md-6">
+														<div class="rev-text">
+															<p>Екатерина Шевчеко<br>
+																<span>доктор наук, стоматолог,<br>лучши стоматолог 2015</span></p>
+															</div>
+														</div>
+													</div>
+													<div class="item">
+														<div class="col-md-6">
+															<iframe width="100%" height="315" src="https://www.youtube.com/embed/Hi_Le0A2w-w" frameborder="0" allowfullscreen></iframe>
+														</div>
+														<div class="col-md-6">
+															<div class="rev-text">
+																<p>Екатерина Шевчеко<br>
+																	<span>доктор наук, стоматолог,<br>лучши стоматолог 2015</span></p>
+															</div>
+														</div>
+													</div>
+													<div class="item">
+														<div class="col-md-6">
+															<iframe width="100%" height="315" src="https://www.youtube.com/embed/Hi_Le0A2w-w" frameborder="0" allowfullscreen></iframe>
+														</div>
+														<div class="col-md-6">
+															<div class="rev-text">
+																<p>Екатерина Шевчеко<br>
+																	<span>доктор наук, стоматолог,<br>лучши стоматолог 2015</span></p>
+															</div>
+														</div>
+													</div>
+													<div class="item">
+														<div class="col-md-6">
+															<iframe width="100%" height="315" src="https://www.youtube.com/embed/Hi_Le0A2w-w" frameborder="0" allowfullscreen></iframe>
+														</div>
+														<div class="col-md-6">
+															<div class="rev-text">
+																<p>Екатерина Шевчеко<br>
+																	<span>доктор наук, стоматолог,<br>лучши стоматолог 2015</span></p>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</section>
+
+							    <section class="footer-form">
+							       <div class="container">
+							         <div class="row">
+							           <div class="col-md-12">
+							             <h3 class="title">Получите развернутую бесплатную консультацию</h3>
+							             <p class="subtitle"> от специалиста по оптике<br>для стоматологов</p>
+							             <div class="line-title"></div>
+							           </div>
+							         </div>
+							         <div class="row pt-65">
+							           <div class="col-md-5 footer-left-text">
+							             <p>Оставьте свои контакты в форме справа и наш специалист свяжется с вами в течение нескольких часов.</p><br>
+							           </div>
+							           <div class="col-md-7">
+							             <div class="contact-form">
+							             <form action="javascript:void(0);" method="post" id="footer-green">
+							               <input type="text" class="inpt inpt-1" required name="name" placeholder="Ваше имя">
+							               <input type="text" class="inpt inpt-2" required name="phone" placeholder="Ваш телефон">
+							               <input type="email" class="inpt inpt-3" required name="email" placeholder="Ваш e-mail">
+	               						<input type="hidden" id="bookname" value="footer-form">
+							               <button type="submit" class="inpt-4 pull-right" id="consult-me-2"><span>проконсультируйте меня</span>&nbsp;&nbsp;&nbsp;<img src="img/blue/arright.png" height="14" width="20" alt=""></button>
+							              </form>
+							             </div>
+							           </div>
+							         </div>
+							       </div>
+							     </section> 
+
+							     <footer>
+							       <div class="container">
+							         <div class="row">
+							           <div class="col-md-2 col-xs-5">
+							             <a href="#">
+							               <img src="img/footer-logo.png" height="40" width="117" alt="">
+							             </a>
+							           </div>
+							           <div class="col-md-2 col-md-offset-8  col-xs-7 text-right">
+							             <p class="footer-phone"><img src="img/phone-left.png" height="20" width="17" alt="">&nbsp;&nbsp;&nbsp;(073) 466-28-77</p>
+							           </div>
+							         </div>
+							       </div>
+							     </footer>
+						</div>
+
+						<div id="yellow" class="content" data-content="content-3">
+		<section class="back hidden-md hidden-lg">
+			<button id="back-3">ВЕРНУТЬСЯ</button>
+		</section>
+							<section class="who-we">
+						      <div class="container">
+						        <div class="row">
+						          <div class="col-md-4">
+						            <h3 class="title">
+						              Кто мы такие?
+						            </h3>
+						            <div class="line-title"></div>
+						          </div>
+						        </div>
+						        <div class="row">
+						          <div class="col-md-4">
+						            <div class="text-right">
+						              <img style="width: 100%; max-width: 343px;" src="img/yellow/azbuka.png" height="" width="" alt=""><br>
+						              <br>
+						              <br>
+						              <img  src="img/blue/kvit.png" height="" width="280" alt="">
+						            </div>
+						          </div>
+						          <div class="col-md-8">
+						            <div class="text-right-who">
+						              <p>Издательский дом “Азбука” специализируется на переводе и издательстве лучших в мире образцов профессиональной литературы для стоматологов. </p>
+						              <p>Фундаментальные знания, лучшие практики, новые разработки и технологии со всего мира вы найдете в наших книгах и периодических изданиях.</p>
+						            </div>
+						          </div>
+						        </div>
+						      </div>
+						    </section>
+
+						    <section class="learning">
+						      <div class="container">
+						        <div class="row">
+						          <div class="col-md-12">
+						            <h3 class="title">
+						              Профессиональная литература для
+						            </h3>
+						            <div class="line-title"></div>
+						          </div>
+						        </div>
+						        <div class="row">
+						          <div class="col-md-3 col-xs-6">
+						            <p class="number">1.</p>
+						            <span class="number-bottom">Имплантологи</span>
+						          </div>
+						          <div class="col-md-3 col-xs-6">
+						            <p class="number">2.</p>
+						            <span class="number-bottom">Пародонтологи</span>
+						          </div>
+						          <div class="col-md-3 col-xs-6">
+						            <p class="number">3.</p>
+						            <span class="number-bottom">Хирурги</span>
+						          </div>
+						          <div class="col-md-3 col-xs-6">
+						            <p class="number">4.</p>
+						            <span class="number-bottom">ортопеды</span>
+						          </div>
+						          <div class="col-md-3 col-xs-6">
+						            <p class="number">5.</p>
+						            <span class="number-bottom">Терапевты</span>
+						          </div>
+						          <div class="col-md-3 col-xs-6">
+						            <p class="number">6.</p>
+						            <span class="number-bottom">Эндодонтисты</span>
+						          </div>
+						          <div class="col-md-3 col-xs-6">
+						            <p class="number">7.</p>
+						            <span class="number-bottom">Техники</span>
+						          </div>
+						          <div class="col-md-3 col-xs-6">
+						            <p class="number">8.</p>
+						            <span class="number-bottom">Ортодонты</span>
+						          </div><!-- 
+						          <div class="col-md-6 col-xs-6">
+						            <p class="number" style="font-size: 119px;line-height: 0.84;">...</p>
+						            <span class="number-bottom">и другие тематики и направления</span>
+						          </div> -->
+						        </div>
+						      </div>
+						    </section>
+
+						    <section class="speakers">
+						      <div class="container">
+						        <div class="row" >
+						            <div class="col-md-12">
+						              <h3 class="title">
+						                ПРОФЕССИОНАЛЬНАЯ ЛИТЕРАТУРА
+						              </h3>
+						              <div class="line-title"></div>
+						            </div>
+						        </div>
+						        <div class="row" style="height: auto !important;">
+						          <div class="container" style="height: auto !important;">
+						            <div class="row" style="height: auto !important;">
+						              <div class="tabs">
+						                  <ul>
+						                      <li>Ортопедия и зуботехнические технологии</li>
+						                      <li>Имплантология</li>
+						                      <li>Оперативная стоматология</li>
+						                      <li>Терапия и эндодонтия</li>
+						                      <li>Хирургия</li>
+						                      <li>Ортодонтия</li>
+						                      <li>Парадонтология</li>
+						                      <li>Междисциплинарная стоматология</li>
+						                      <li>Общие аспекты</li>
+						                      <li>Периодическое издание</li>
+						                  </ul>
+						                  <div>
+						                      <div>
+						                      		<div class="row">
+							                          <div class="col-md-3 col-sm-6 pb-70 item-book-hover">
+							                            <div class="col-xs-12 col-md-5">
+							                              <div class="speaker-wrap">
+							                                <img src="img/yellow/book/1.jpg" height="auto" width="100%" alt="">
+							                              </div>
+							                            </div>
+							                            <div class="col-xs-12 col-md-7">
+							                                <p class="speaker-name">Гюнтер <span>Зойберт</span></p>
+							                              <p class="speaker-desc">Азбука зуботехнического языка</p> 
+							                              <button class="button-yellow-text" id="book-1" data-toggle="modal" data-target="#myModal">Получить</button>
+			<!-- Button trigger modal -->
+														<button type="button" class="book_more" data-toggle="modal" data-target="#myModalCat">
+														  
+														</button>
+							                            </div>
+							                          </div>
+							                          <div class="col-md-3 col-sm-6 pb-70 item-book-hover">
+							                            <div class="col-xs-12 col-md-5">
+							                              <div class="speaker-wrap">
+							                                <img src="img/yellow/book/2.jpg" height="auto" width="100%" alt="">
+							                              </div>
+							                            </div>
+							                            <div class="col-xs-12 col-md-7">
+							                                <p class="speaker-name">Мауро <span>Фрадеани</span></p>
+							                              <p class="speaker-desc">Анализ эстетики</p> 
+							                              <button class="button-yellow-text" id="book-1" data-toggle="modal" data-target="#myModal">Получить</button>
+														<button type="button" class="book_more" data-toggle="modal" data-target="#myModalCat">
+							                            </div>
+							                          </div>
+							                          <div class="col-md-3 col-sm-6 pb-70 item-book-hover">
+							                            <div class="col-xs-12 col-md-5">
+							                              <div class="speaker-wrap">
+							                                <img src="img/yellow/book/3.jpg" height="auto" width="100%" alt="">
+							                              </div>
+							                            </div>
+							                            <div class="col-xs-12 col-md-7">
+							                                <p class="speaker-name">Жерар <span>Шиш</span></p>
+							                              <p class="speaker-desc">Анатомия улыбки</p> 
+							                              <button class="button-yellow-text" id="book-1" data-toggle="modal" data-target="#myModal">Получить</button>
+														<button type="button" class="book_more" data-toggle="modal" data-target="#myModalCat">
+							                            </div>
+							                          </div>
+							                          <div class="col-md-3 col-sm-6 pb-70 item-book-hover">
+							                            <div class="col-xs-12 col-md-5">
+							                              <div class="speaker-wrap">
+							                                <img src="img/yellow/book/4.jpg" height="auto" width="100%" alt="">
+							                              </div>
+							                            </div>
+							                            <div class="col-xs-12 col-md-7">
+							                                <p class="speaker-name">Дарно <span>Адольфи</span></p>
+							                              <p class="speaker-desc">Естественная красота</p> 
+							                              <button class="button-yellow-text" id="book-1" data-toggle="modal" data-target="#myModal">Получить</button>
+														<button type="button" class="book_more" data-toggle="modal" data-target="#myModalCat">
+							                            </div>
+							                          </div>
+							                        </div>
+						                              <div class="cleafix"></div>
+
+						                          <div class="container" style="height: auto !important;">
+						                            <div class="row" style="height: auto !important;">
+						                              <div class="col-md-8" style="height: auto !important;">
+						                                <p class="yellow-text-book" >Получите бесплатно полный каталог книг и консультацию нашего специалиста по подбору литературы по вашей специализации</p>
+						                              </div>
+						                              <div class="col-md-4">
+						                                <button class="button-yellow-text" data-toggle="modal" data-target="#myModal" id="search-book"><span>Подобрать литературу</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img/yellow/arr-right.png" height="14" width="20" alt=""></button>
+						                              </div>
+						                            </div>
+						                          </div>
+
+						                          <div class="cleafix"></div>
+						                          <div class="hidden-sm hidden-xs" style="max-width: 100%;margin: 0 auto;">
+						                          	<div id="" class="review-carousel owl-book">
+						                              	<div class="row">
+															<div class="col-md-5 padding-null pl0 min-226">
+																<div class="event-body">
+																	<img src="img/blue/vertical.png" class="vertical" height="172" width="2" alt="">
+																	<p class="event-name">Пластическая хирургия на мягких тканях  полости рта в эстетической значимой зоне: устаренение десневых дефектов в области зубов и имплататов</p>
+																	<p class="event-n">Джованни Зукели</p>
+																	<p class="event-date">10 апреля 2016</p>
+																	<p class="event-place">Алматы, Казахстан</p>
+																</div>
+
+															</div>
+															<div class="col-md-7 bgf6f6f6 pr0 min-226">
+																<div class="right-text">
+																	<p>Повышения требований пациентов к эстетическим результатам стоматологического лечения привело к необходимости совершенствования пластических хирургических вмешательств на мягких тканях полости рта. В ходе курса слушатели познакомятся с  поэтапным протоколом найболее эффективных метод устранения  рецессий, узнают об особенностях устранения рецессий в области зубов и о краткосрочном и долгосрочном исходе  обсуцждаемых хирургических вмешательств. Курсантам предоставляються все необходимые материалы и оборудование</p>
+																	<div class="button-event-more"><button class="event-button" data-toggle="modal" data-target="#myModal" id="event4"><span>Узнать детали и стоимость</span>&nbsp;&nbsp;&nbsp;<img src="img/blue/arright.png" height="14" width="20" alt=""></button></div>
+																</div>
+															</div>
+														</div>
+														<div class="row">
+															<div class="col-md-5 padding-null pl0 min-226">
+																<div class="event-body">
+																	<img src="img/blue/vertical.png" class="vertical" height="172" width="2" alt="">
+																	<p class="event-name">Пластическая хирургия на мягких тканях  полости рта в эстетической значимой зоне: устаренение десневых дефектов в области зубов и имплататов</p>
+																	<p class="event-n">Джованни Зукели</p>
+																	<p class="event-date">10 апреля 2016</p>
+																	<p class="event-place">Алматы, Казахстан</p>
+																</div>
+
+															</div>
+															<div class="col-md-7 bgf6f6f6 pr0 min-226">
+																<div class="right-text">
+																	<p>Повышения требований пациентов к эстетическим результатам стоматологического лечения привело к необходимости совершенствования пластических хирургических вмешательств на мягких тканях полости рта. В ходе курса слушатели познакомятся с  поэтапным протоколом найболее эффективных метод устранения  рецессий, узнают об особенностях устранения рецессий в области зубов и о краткосрочном и долгосрочном исходе  обсуцждаемых хирургических вмешательств. Курсантам предоставляються все необходимые материалы и оборудование</p>
+																	<div class="button-event-more"><button class="event-button" data-toggle="modal" data-target="#myModal" id="event4"><span>Узнать детали и стоимость</span>&nbsp;&nbsp;&nbsp;<img src="img/blue/arright.png" height="14" width="20" alt=""></button></div>
+																</div>
+															</div>
+														</div>
+						                            </div>
+						                          </div>
+						                          <br>
+						                          <br>
+						                          <br>
+						                      </div>
+
+						                      <!-- Имплантология -->
+
+						                      <div>
+						                      		<div class="row">
+							                          <div class="col-md-3 col-sm-6 pb-70 item-book-hover">
+							                            <div class="col-xs-12 col-md-5">
+							                              <div class="speaker-wrap">
+							                                <img src="img/yellow/book/1/10.jpg" height="auto" width="100%" alt="">
+							                              </div>
+							                            </div>
+							                            <div class="col-xs-12 col-md-7">
+							                                <p class="speaker-name">Иньяки <span>Гамборена</span></p>
+							                              <p class="speaker-desc">Эволюция</p> 
+							                              <button class="button-yellow-text" id="book-11" data-toggle="modal" data-target="#myModal">Получить</button>
+							                            </div>
+							                          </div>
+							                        </div>
+						                              <div class="cleafix"></div>
+
+						                          <div class="container" style="height: auto !important;">
+						                            <div class="row" style="height: auto !important;">
+						                              <div class="col-md-8" style="height: auto !important;">
+						                                <p class="yellow-text-book" >Получите бесплатно полный каталог книг и консультацию нашего специалиста по подбору литературы по вашей специализации</p>
+						                              </div>
+						                              <div class="col-md-4">
+						                                <button class="button-yellow-text" data-toggle="modal" data-target="#myModal" id="search-book-2"><span>Подобрать литературу</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img/yellow/arr-right.png" height="14" width="20" alt=""></button>
+						                              </div>
+						                            </div>
+						                          </div>
+
+						                          <div class="cleafix"></div>
+						                          <div class="hidden-sm hidden-xs" style="max-width: 100%;margin: 0 auto;">
+						                          	<div id="" class="review-carousel owl-book">
+						                              	<div class="row">
+															<div class="col-md-5 padding-null pl0 min-226">
+																<div class="event-body">
+																	<img src="img/blue/vertical.png" class="vertical" height="172" width="2" alt="">
+																	<p class="event-name">Пластическая хирургия на мягких тканях  полости рта в эстетической значимой зоне: устаренение десневых дефектов в области зубов и имплататов</p>
+																	<p class="event-n">Джованни Зукели</p>
+																	<p class="event-date">10 апреля 2016</p>
+																	<p class="event-place">Алматы, Казахстан</p>
+																</div>
+
+															</div>
+															<div class="col-md-7 bgf6f6f6 pr0 min-226">
+																<div class="right-text">
+																	<p>Повышения требований пациентов к эстетическим результатам стоматологического лечения привело к необходимости совершенствования пластических хирургических вмешательств на мягких тканях полости рта. В ходе курса слушатели познакомятся с  поэтапным протоколом найболее эффективных метод устранения  рецессий, узнают об особенностях устранения рецессий в области зубов и о краткосрочном и долгосрочном исходе  обсуцждаемых хирургических вмешательств. Курсантам предоставляються все необходимые материалы и оборудование</p>
+																	<div class="button-event-more"><button class="event-button" data-toggle="modal" data-target="#myModal" id="event4"><span>Узнать детали и стоимость</span>&nbsp;&nbsp;&nbsp;<img src="img/blue/arright.png" height="14" width="20" alt=""></button></div>
+																</div>
+															</div>
+														</div>
+														<div class="row">
+															<div class="col-md-5 padding-null pl0 min-226">
+																<div class="event-body">
+																	<img src="img/blue/vertical.png" class="vertical" height="172" width="2" alt="">
+																	<p class="event-name">Пластическая хирургия на мягких тканях  полости рта в эстетической значимой зоне: устаренение десневых дефектов в области зубов и имплататов</p>
+																	<p class="event-n">Джованни Зукели</p>
+																	<p class="event-date">10 апреля 2016</p>
+																	<p class="event-place">Алматы, Казахстан</p>
+																</div>
+
+															</div>
+															<div class="col-md-7 bgf6f6f6 pr0 min-226">
+																<div class="right-text">
+																	<p>Повышения требований пациентов к эстетическим результатам стоматологического лечения привело к необходимости совершенствования пластических хирургических вмешательств на мягких тканях полости рта. В ходе курса слушатели познакомятся с  поэтапным протоколом найболее эффективных метод устранения  рецессий, узнают об особенностях устранения рецессий в области зубов и о краткосрочном и долгосрочном исходе  обсуцждаемых хирургических вмешательств. Курсантам предоставляються все необходимые материалы и оборудование</p>
+																	<div class="button-event-more"><button class="event-button" data-toggle="modal" data-target="#myModal" id="event4"><span>Узнать детали и стоимость</span>&nbsp;&nbsp;&nbsp;<img src="img/blue/arright.png" height="14" width="20" alt=""></button></div>
+																</div>
+															</div>
+														</div>
+						                            </div>
+						                          </div>
+						                          <br>
+						                          <br>
+						                          <br>
+						                      </div>
+
+						                      <!-- Оперативная стоматология -->
+
+						                      <div>
+						                      	<div class="row">
+						                          <div class="col-md-3 col-sm-6 pb-70 item-book-hover">
+						                            <div class="col-xs-12 col-md-5">
+						                              <div class="speaker-wrap">
+						                                <img src="img/yellow/book/2/1.jpg" height="auto" width="100%" alt="">
+						                              </div>
+						                            </div>
+						                            <div class="col-xs-12 col-md-7">
+						                                <p class="speaker-name">Жан-Франсуа <span>Руле</span></p>
+						                              <p class="speaker-desc">Передовые технологии в оперативной стоматологии</p> 
+						                              <button class="button-yellow-text" id="book-21" data-toggle="modal" data-target="#myModal">Получить</button>
+						                            </div>
+						                          </div>
+						                          <div class="col-md-3 col-sm-6 pb-70 item-book-hover">
+						                            <div class="col-xs-12 col-md-5">
+						                              <div class="speaker-wrap">
+						                                <img src="img/yellow/book/2/2.jpg" height="auto" width="100%" alt="">
+						                              </div>
+						                            </div>
+						                            <div class="col-xs-12 col-md-7">
+						                                <p class="speaker-name">А. <span>Черутти</span></p>
+						                              <p class="speaker-desc">Руководство по адгезивной стоматологии</p> 
+						                              <button class="button-yellow-text" id="book-22" data-toggle="modal" data-target="#myModal">Получить</button>
+						                            </div>
+						                          </div>
+						                          <div class="col-md-3 col-sm-6 pb-70 item-book-hover">
+						                            <div class="col-xs-12 col-md-5">
+						                              <div class="speaker-wrap">
+						                                <img src="img/yellow/book/2/3.jpg" height="auto" width="100%" alt="">
+						                              </div>
+						                            </div>
+						                            <div class="col-xs-12 col-md-7">
+						                                <p class="speaker-name">Йорди <span>манаута</span></p>
+						                              <p class="speaker-desc">Слои</p> 
+						                              <button class="button-yellow-text" id="book-23" data-toggle="modal" data-target="#myModal">Получить</button>
+						                            </div>
+						                          </div>
+						                        </div>
+						                              <div class="cleafix"></div>
+
+						                          <div class="container" style="height: auto !important;">
+						                            <div class="row" style="height: auto !important;">
+						                              <div class="col-md-8" style="height: auto !important;">
+						                                <p class="yellow-text-book" >Получите бесплатно полный каталог книг и консультацию нашего специалиста по подбору литературы по вашей специализации</p>
+						                              </div>
+						                              <div class="col-md-4">
+						                                <button class="button-yellow-text" data-toggle="modal" data-target="#myModal" id="search-book-3"><span>Подобрать литературу</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img/yellow/arr-right.png" height="14" width="20" alt=""></button>
+						                              </div>
+						                            </div>
+						                          </div>
+
+						                          <div class="cleafix"></div>
+						                          <br>
+						                      </div>
+
+						                      <!-- Терапия, Эндодонтия -->
+
+						                      <div>
+						                      	<div class="row">
+						                          <div class="col-md-3 col-sm-6 pb-70 item-book-hover">
+						                            <div class="col-xs-12 col-md-5">
+						                              <div class="speaker-wrap">
+						                                <img src="img/yellow/book/3/1.jpg" height="auto" width="100%" alt="">
+						                              </div>
+						                            </div>
+						                            <div class="col-xs-12 col-md-7">
+						                                <p class="speaker-name">Михаэль <span>Хюльсманн</span></p>
+						                              <p class="speaker-desc">Проблемы эндодологии</p> 
+						                              <button class="button-yellow-text" id="book-31" data-toggle="modal" data-target="#myModal">Получить</button>
+						                            </div>
+						                          </div>
+						                          <div class="col-md-3 col-sm-6 pb-70 item-book-hover">
+						                            <div class="col-xs-12 col-md-5">
+						                              <div class="speaker-wrap">
+						                                <img src="img/yellow/book/3/3.jpg" height="auto" width="100%" alt="">
+						                              </div>
+						                            </div>
+						                            <div class="col-xs-12 col-md-7">
+						                                <p class="speaker-name">Доменико <span>Рикуччи</span></p>
+						                              <p class="speaker-desc">Клинико-биологические аспекты</p> 
+						                              <button class="button-yellow-text" id="book-33" data-toggle="modal" data-target="#myModal">Получить</button>
+						                            </div>
+						                          </div>
+						                        </div>
+						                              <div class="cleafix"></div>
+
+						                          <div class="container" style="height: auto !important;">
+						                            <div class="row" style="height: auto !important;">
+						                              <div class="col-md-8" style="height: auto !important;">
+						                                <p class="yellow-text-book" >Получите бесплатно полный каталог книг и консультацию нашего специалиста по подбору литературы по вашей специализации</p>
+						                              </div>
+						                              <div class="col-md-4">
+						                                <button class="button-yellow-text" data-toggle="modal" data-target="#myModal" id="search-book-4"><span>Подобрать литературу</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img/yellow/arr-right.png" height="14" width="20" alt=""></button>
+						                              </div>
+						                            </div>
+						                          </div>
+
+						                          <div class="cleafix"></div>
+						                          <br>
+						                      </div>
+
+						                      <!-- Хирургия -->
+
+						                      <div>
+						                      	<div class="row">
+						                          <div class="col-md-3 col-sm-6 pb-70 item-book-hover">
+						                            <div class="col-xs-12 col-md-5">
+						                              <div class="speaker-wrap">
+						                                <img src="img/yellow/book/4/1.jpg" height="auto" width="100%" alt="">
+						                              </div>
+						                            </div>
+						                            <div class="col-xs-12 col-md-7">
+						                                <p class="speaker-name">Соихиро <span>Асанами</span></p>
+						                              <p class="speaker-desc">Квалифиццированное удаление третьих маляров</p> 
+						                              <button class="button-yellow-text" id="book-41" data-toggle="modal" data-target="#myModal">Получить</button>
+						                            </div>
+						                          </div>
+						                          <div class="col-md-3 col-sm-6 pb-70 item-book-hover">
+						                            <div class="col-xs-12 col-md-5">
+						                              <div class="speaker-wrap">
+						                                <img src="img/yellow/book/4/2.jpg" height="auto" width="100%" alt="">
+						                              </div>
+						                            </div>
+						                            <div class="col-xs-12 col-md-7">
+						                                <p class="speaker-name">Ральф <span>Беллиззи</span></p>
+						                              <p class="speaker-desc">Клинический атлас эндодонтической хирургии</p> 
+						                              <button class="button-yellow-text" id="book-42" data-toggle="modal" data-target="#myModal">Получить</button>
+						                            </div>
+						                          </div>
+						                          <div class="col-md-3 col-sm-6 pb-70 item-book-hover">
+						                            <div class="col-xs-12 col-md-5">
+						                              <div class="speaker-wrap">
+						                                <img src="img/yellow/book/4/3.jpg" height="auto" width="100%" alt="">
+						                              </div>
+						                            </div>
+						                            <div class="col-xs-12 col-md-7">
+						                                <p class="speaker-name">Жан-Мари <span>Корбандо</span></p>
+						                              <p class="speaker-desc">Хирургическое и ортодонтическое лечение ретинированных зубов</p> 
+						                              <button class="button-yellow-text" id="book-43" data-toggle="modal" data-target="#myModal">Получить</button>
+						                            </div>
+						                          </div>
+						                          <div class="col-md-3 col-sm-6 pb-70 item-book-hover">
+						                            <div class="col-xs-12 col-md-5">
+						                              <div class="speaker-wrap">
+						                                <img src="img/yellow/book/4/4.jpg" height="auto" width="100%" alt="">
+						                              </div>
+						                            </div>
+						                            <div class="col-xs-12 col-md-7">
+						                                <p class="speaker-name">Наоши <span>Сато</span></p>
+						                              <p class="speaker-desc">Хирургия пародонта</p> 
+						                              <button class="button-yellow-text" id="book-44" data-toggle="modal" data-target="#myModal">Получить</button>
+						                            </div>
+						                          </div>
+						                        </div>
+						                              <div class="cleafix"></div>
+
+						                          <div class="container" style="height: auto !important;">
+						                            <div class="row" style="height: auto !important;">
+						                              <div class="col-md-8" style="height: auto !important;">
+						                                <p class="yellow-text-book" >Получите бесплатно полный каталог книг и консультацию нашего специалиста по подбору литературы по вашей специализации</p>
+						                              </div>
+						                              <div class="col-md-4">
+						                                <button class="button-yellow-text" data-toggle="modal" data-target="#myModal" id="search-book-5"><span>Подобрать литературу</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img/yellow/arr-right.png" height="14" width="20" alt=""></button>
+						                              </div>
+						                            </div>
+						                          </div>
+
+						                          <div class="cleafix"></div>
+						                          <br>
+						                      </div>
+
+						                      <!-- Ортодонтия -->
+
+						                      <div>
+						                      	<div class="container">
+						                          <div class="col-md-3 col-sm-6 pb-70 item-book-hover">
+						                            <div class="col-xs-12 col-md-5">
+						                              <div class="speaker-wrap">
+						                                <img src="img/yellow/book/5/1.jpg" height="auto" width="100%" alt="">
+						                              </div>
+						                            </div>
+						                            <div class="col-xs-12 col-md-7">
+						                                <p class="speaker-name">Садао <span>Сато</span></p>
+						                              <p class="speaker-desc">Руководство по клиническому применению методики МПД</p> 
+						                              <button class="button-yellow-text" id="book-61" data-toggle="modal" data-target="#myModal">Получить</button>
+						                            </div>
+						                          </div>
+						                          <div class="col-md-3 col-sm-6 pb-70 item-book-hover">
+						                            <div class="col-xs-12 col-md-5">
+						                              <div class="speaker-wrap">
+						                                <img src="img/yellow/book/5/2.jpg" height="auto" width="100%" alt="">
+						                              </div>
+						                            </div>
+						                            <div class="col-xs-12 col-md-7">
+						                                <p class="speaker-name">Эихиро <span>Накаджима</span></p>
+						                              <p class="speaker-desc">Изгибание ортодонтической проволки</p> 
+						                              <button class="button-yellow-text" id="book-62" data-toggle="modal" data-target="#myModal">Получить</button>
+						                            </div>
+						                          </div>
+						                        </div>
+						                              <div class="cleafix"></div>
+
+						                          <div class="container" style="height: auto !important;">
+						                            <div class="row" style="height: auto !important;">
+						                              <div class="col-md-8" style="height: auto !important;">
+						                                <p class="yellow-text-book" >Получите бесплатно полный каталог книг и консультацию нашего специалиста по подбору литературы по вашей специализации</p>
+						                              </div>
+						                              <div class="col-md-4">
+						                                <button class="button-yellow-text" data-toggle="modal" data-target="#myModal" id="search-book-7"><span>Подобрать литературу</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img/yellow/arr-right.png" height="14" width="20" alt=""></button>
+						                              </div>
+						                            </div>
+						                          </div>
+
+						                          <div class="cleafix"></div>
+						                          <br>
+						                      </div>
+
+						                      <!-- Парадонтология -->
+
+						                      <div>
+						                      	<div class="row">
+						                          <div class="col-md-3 col-sm-6 pb-70 item-book-hover">
+						                            <div class="col-xs-12 col-md-5">
+						                              <div class="speaker-wrap">
+						                                <img src="img/yellow/book/5/1.jpg" height="auto" width="100%" alt="">
+						                              </div>
+						                            </div>
+						                            <div class="col-xs-12 col-md-7">
+						                                <p class="speaker-name">Джованни <span>Зуккелли</span></p>
+						                              <p class="speaker-desc">Пластическая хирургия мягких тканей полости рта</p> 
+						                              <button class="button-yellow-text" id="book-81" data-toggle="modal" data-target="#myModal">Получить</button>
+						                            </div>
+						                          </div>
+						                          <div class="col-md-3 col-sm-6 pb-70 item-book-hover">
+						                            <div class="col-xs-12 col-md-5">
+						                              <div class="speaker-wrap">
+						                                <img src="img/yellow/book/6/3.jpg" height="auto" width="100%" alt="">
+						                              </div>
+						                            </div>
+						                            <div class="col-xs-12 col-md-7">
+						                                <p class="speaker-name">Эихиро <span>Накаджима</span></p>
+						                              <p class="speaker-desc">Пластическая и эстетическая хирургия в парадонтологииии имплантологии</p> 
+						                              <button class="button-yellow-text" id="book-82" data-toggle="modal" data-target="#myModal">Получить</button>
+						                            </div>
+						                          </div>
+						                          <div class="col-md-3 col-sm-6 pb-70 item-book-hover">
+						                            <div class="col-xs-12 col-md-5">
+						                              <div class="speaker-wrap">
+						                                <img src="img/yellow/book/6/9.jpg" height="auto" width="100%" alt="">
+						                              </div>
+						                            </div>
+						                            <div class="col-xs-12 col-md-7">
+						                                <p class="speaker-name">Антонелла <span>Боттичелли</span></p>
+						                              <p class="speaker-desc">Перенимая опыт</p> 
+						                              <button class="button-yellow-text" id="book-82" data-toggle="modal" data-target="#myModal">Получить</button>
+						                            </div>
+						                          </div>
+						                          <div class="col-md-3 col-sm-6 pb-70 item-book-hover">
+						                            <div class="col-xs-12 col-md-5">
+						                              <div class="speaker-wrap">
+						                                <img src="img/yellow/book/6/6.jpg" height="auto" width="100%" alt="">
+						                              </div>
+						                            </div>
+						                            <div class="col-xs-12 col-md-7">
+						                                <p class="speaker-name">Марио <span>Айметти</span></p>
+						                              <p class="speaker-desc">Диагностика и лечение заболеваний пародонтат</p> 
+						                              <button class="button-yellow-text" id="book-82" data-toggle="modal" data-target="#myModal">Получить</button>
+						                            </div>
+						                          </div>
+						                        </div>
+
+						                          <div class="cleafix"></div>
+
+						                          <div class="container" style="height: auto !important;">
+						                            <div class="row" style="height: auto !important;">
+						                              <div class="col-md-8" style="height: auto !important;">
+						                                <p class="yellow-text-book" >Получите бесплатно полный каталог книг и консультацию нашего специалиста по подбору литературы по вашей специализации</p>
+						                              </div>
+						                              <div class="col-md-4">
+						                                <button class="button-yellow-text" data-toggle="modal" data-target="#myModal" id="search-book-88"><span>Подобрать литературу</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img/yellow/arr-right.png" height="14" width="20" alt=""></button>
+						                              </div>
+						                            </div>
+						                          </div>
+
+						                          <div class="cleafix"></div>
+						                          <div class="hidden-sm hidden-xs" style="max-width: 100%;margin: 0 auto;">
+						                          	<div id="" class="review-carousel owl-book">
+						                              	<div class="row">
+															<div class="col-md-5 padding-null pl0 min-226">
+																<div class="event-body">
+																	<img src="img/blue/vertical.png" class="vertical" height="172" width="2" alt="">
+																	<p class="event-name">Пластическая хирургия на мягких тканях  полости рта в эстетической значимой зоне: устаренение десневых дефектов в области зубов и имплататов</p>
+																	<p class="event-n">Джованни Зукели</p>
+																	<p class="event-date">10 апреля 2016</p>
+																	<p class="event-place">Алматы, Казахстан</p>
+																</div>
+
+															</div>
+															<div class="col-md-7 bgf6f6f6 pr0 min-226">
+																<div class="right-text">
+																	<p>Повышения требований пациентов к эстетическим результатам стоматологического лечения привело к необходимости совершенствования пластических хирургических вмешательств на мягких тканях полости рта. В ходе курса слушатели познакомятся с  поэтапным протоколом найболее эффективных метод устранения  рецессий, узнают об особенностях устранения рецессий в области зубов и о краткосрочном и долгосрочном исходе  обсуцждаемых хирургических вмешательств. Курсантам предоставляються все необходимые материалы и оборудование</p>
+																	<div class="button-event-more"><button class="event-button" data-toggle="modal" data-target="#myModal" id="event4"><span>Узнать детали и стоимость</span>&nbsp;&nbsp;&nbsp;<img src="img/blue/arright.png" height="14" width="20" alt=""></button></div>
+																</div>
+															</div>
+														</div>
+														<div class="row">
+															<div class="col-md-5 padding-null pl0 min-226">
+																<div class="event-body">
+																	<img src="img/blue/vertical.png" class="vertical" height="172" width="2" alt="">
+																	<p class="event-name">Пластическая хирургия на мягких тканях  полости рта в эстетической значимой зоне: устаренение десневых дефектов в области зубов и имплататов</p>
+																	<p class="event-n">Джованни Зукели</p>
+																	<p class="event-date">10 апреля 2016</p>
+																	<p class="event-place">Алматы, Казахстан</p>
+																</div>
+
+															</div>
+															<div class="col-md-7 bgf6f6f6 pr0 min-226">
+																<div class="right-text">
+																	<p>Повышения требований пациентов к эстетическим результатам стоматологического лечения привело к необходимости совершенствования пластических хирургических вмешательств на мягких тканях полости рта. В ходе курса слушатели познакомятся с  поэтапным протоколом найболее эффективных метод устранения  рецессий, узнают об особенностях устранения рецессий в области зубов и о краткосрочном и долгосрочном исходе  обсуцждаемых хирургических вмешательств. Курсантам предоставляються все необходимые материалы и оборудование</p>
+																	<div class="button-event-more"><button class="event-button" data-toggle="modal" data-target="#myModal" id="event4"><span>Узнать детали и стоимость</span>&nbsp;&nbsp;&nbsp;<img src="img/blue/arright.png" height="14" width="20" alt=""></button></div>
+																</div>
+															</div>
+														</div>
+						                            </div>
+						                          </div>
+						                          <br>
+						                      </div>
+
+						                      <!-- Междисциплинарная стоматология -->
+
+						                      <div>
+						                      	<div class="row">
+						                          <div class="col-md-3 col-sm-6 pb-70 item-book-hover">
+						                            <div class="col-xs-12 col-md-5">
+						                              <div class="speaker-wrap">
+						                                <img src="img/yellow/book/7/2.jpg" height="auto" width="100%" alt="">
+						                              </div>
+						                            </div>
+						                            <div class="col-xs-12 col-md-7">
+						                                <p class="speaker-name">Дуглас <span>Терри</span></p>
+						                              <p class="speaker-desc">Эстетическая и реставрационная стоматология</p> 
+						                              <button class="button-yellow-text" id="book-91" data-toggle="modal" data-target="#myModal">Получить</button>
+						                            </div>
+						                          </div>
+						                          <div class="col-md-3 col-sm-6 pb-70 item-book-hover">
+						                            <div class="col-xs-12 col-md-5">
+						                              <div class="speaker-wrap">
+						                                <img src="img/yellow/book/7/3.jpg" height="auto" width="100%" alt="">
+						                              </div>
+						                            </div>
+						                            <div class="col-xs-12 col-md-7">
+						                                <p class="speaker-name">Даниэль <span>Брокар</span></p>
+						                              <p class="speaker-desc">Бруксизм</p> 
+						                              <button class="button-yellow-text" id="book-92" data-toggle="modal" data-target="#myModal">Получить</button>
+						                            </div>
+						                          </div>
+						                          <div class="col-md-3 col-sm-6 pb-70 item-book-hover">
+						                            <div class="col-xs-12 col-md-5">
+						                              <div class="speaker-wrap">
+						                                <img src="img/yellow/book/7/4.jpg" height="auto" width="100%" alt="">
+						                              </div>
+						                            </div>
+						                            <div class="col-xs-12 col-md-7">
+						                                <p class="speaker-name">Даниэле <span>Манфредини</span></p>
+						                              <p class="speaker-desc">Височно-нижнечелюстные расстройства</p> 
+						                              <button class="button-yellow-text" id="book-92" data-toggle="modal" data-target="#myModal">Получить</button>
+						                            </div>
+						                          </div>
+						                          <div class="col-md-3 col-sm-6 pb-70 item-book-hover">
+						                            <div class="col-xs-12 col-md-5">
+						                              <div class="speaker-wrap">
+						                                <img src="img/yellow/book/7/1.jpg" height="auto" width="100%" alt="">
+						                              </div>
+						                            </div>
+						                            <div class="col-xs-12 col-md-7">
+						                                <p class="speaker-name">Вольфрам <span>Бюкинг</span></p>
+						                              <p class="speaker-desc">Стоматологическая сокровещница</p> 
+						                              <button class="button-yellow-text" id="book-92" data-toggle="modal" data-target="#myModal">Получить</button>
+						                            </div>
+						                          </div>
+						                        </div>
+						                              <div class="cleafix"></div>
+
+						                          <div class="container" style="height: auto !important;">
+						                            <div class="row" style="height: auto !important;">
+						                              <div class="col-md-8" style="height: auto !important;">
+						                                <p class="yellow-text-book" >Получите бесплатно полный каталог книг и консультацию нашего специалиста по подбору литературы по вашей специализации</p>
+						                              </div>
+						                              <div class="col-md-4">
+						                                <button class="button-yellow-text" data-toggle="modal" data-target="#myModal" id="search-book-11"><span>Подобрать литературу</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img/yellow/arr-right.png" height="14" width="20" alt=""></button>
+						                              </div>
+						                            </div>
+						                          </div>
+
+						                          <div class="cleafix"></div>
+						                          <div class="hidden-sm hidden-xs" style="max-width: 100%;margin: 0 auto;">
+						                          	<div id="" class="review-carousel owl-book">
+						                              	<div class="row">
+															<div class="col-md-5 padding-null pl0 min-226">
+																<div class="event-body">
+																	<img src="img/blue/vertical.png" class="vertical" height="172" width="2" alt="">
+																	<p class="event-name">Пластическая хирургия на мягких тканях  полости рта в эстетической значимой зоне: устаренение десневых дефектов в области зубов и имплататов</p>
+																	<p class="event-n">Джованни Зукели</p>
+																	<p class="event-date">10 апреля 2016</p>
+																	<p class="event-place">Алматы, Казахстан</p>
+																</div>
+
+															</div>
+															<div class="col-md-7 bgf6f6f6 pr0 min-226">
+																<div class="right-text">
+																	<p>Повышения требований пациентов к эстетическим результатам стоматологического лечения привело к необходимости совершенствования пластических хирургических вмешательств на мягких тканях полости рта. В ходе курса слушатели познакомятся с  поэтапным протоколом найболее эффективных метод устранения  рецессий, узнают об особенностях устранения рецессий в области зубов и о краткосрочном и долгосрочном исходе  обсуцждаемых хирургических вмешательств. Курсантам предоставляються все необходимые материалы и оборудование</p>
+																	<div class="button-event-more"><button class="event-button" data-toggle="modal" data-target="#myModal" id="event4"><span>Узнать детали и стоимость</span>&nbsp;&nbsp;&nbsp;<img src="img/blue/arright.png" height="14" width="20" alt=""></button></div>
+																</div>
+															</div>
+														</div>
+														<div class="row">
+															<div class="col-md-5 padding-null pl0 min-226">
+																<div class="event-body">
+																	<img src="img/blue/vertical.png" class="vertical" height="172" width="2" alt="">
+																	<p class="event-name">Пластическая хирургия на мягких тканях  полости рта в эстетической значимой зоне: устаренение десневых дефектов в области зубов и имплататов</p>
+																	<p class="event-n">Джованни Зукели</p>
+																	<p class="event-date">10 апреля 2016</p>
+																	<p class="event-place">Алматы, Казахстан</p>
+																</div>
+
+															</div>
+															<div class="col-md-7 bgf6f6f6 pr0 min-226">
+																<div class="right-text">
+																	<p>Повышения требований пациентов к эстетическим результатам стоматологического лечения привело к необходимости совершенствования пластических хирургических вмешательств на мягких тканях полости рта. В ходе курса слушатели познакомятся с  поэтапным протоколом найболее эффективных метод устранения  рецессий, узнают об особенностях устранения рецессий в области зубов и о краткосрочном и долгосрочном исходе  обсуцждаемых хирургических вмешательств. Курсантам предоставляються все необходимые материалы и оборудование</p>
+																	<div class="button-event-more"><button class="event-button" data-toggle="modal" data-target="#myModal" id="event4"><span>Узнать детали и стоимость</span>&nbsp;&nbsp;&nbsp;<img src="img/blue/arright.png" height="14" width="20" alt=""></button></div>
+																</div>
+															</div>
+														</div>
+						                            </div>
+						                          </div>
+						                          <br>
+						                      </div>
+
+						                      <!-- Общие аспекты -->
+
+						                      <div>
+						                      	<div class="row">
+						                          <div class="col-md-3 col-sm-6 pb-70 item-book-hover">
+						                            <div class="col-xs-12 col-md-5">
+						                              <div class="speaker-wrap">
+						                                <img src="img/yellow/book/8/1.jpg" height="auto" width="100%" alt="">
+						                              </div>
+						                            </div>
+						                            <div class="col-xs-12 col-md-7">
+						                                <p class="speaker-name">Майкл <span>Ньюман</span></p>
+						                              <p class="speaker-desc">Антимикробные препараты</p> 
+						                              <button class="button-yellow-text" id="book-111" data-toggle="modal" data-target="#myModal">Получить</button>
+						                            </div>
+						                          </div>
+						                          <div class="col-md-3 col-sm-6 pb-70 item-book-hover">
+						                            <div class="col-xs-12 col-md-5">
+						                              <div class="speaker-wrap">
+						                                <img src="img/yellow/book/8/2.jpg" height="auto" width="100%" alt="">
+						                              </div>
+						                            </div>
+						                            <div class="col-xs-12 col-md-7">
+						                                <p class="speaker-name">Майкл <span>Массвотто</span></p>
+						                              <p class="speaker-desc">25 способов угробить стоматологическую клинику</p> 
+						                              <button class="button-yellow-text" id="book-112" data-toggle="modal" data-target="#myModal">Получить</button>
+						                            </div>
+						                          </div>
+						                          <div class="col-md-3 col-sm-6 pb-70 item-book-hover">
+						                            <div class="col-xs-12 col-md-5">
+						                              <div class="speaker-wrap">
+						                                <img src="img/yellow/book/8/3.jpg" height="auto" width="100%" alt="">
+						                              </div>
+						                            </div>
+						                            <div class="col-xs-12 col-md-7">
+						                                <p class="speaker-name">Ральф <span>Реддисон</span></p>
+						                              <p class="speaker-desc">Атлас клинической анатомии</p> 
+						                              <button class="button-yellow-text" id="book-112" data-toggle="modal" data-target="#myModal">Получить</button>
+						                            </div>
+						                          </div>
+						                          <div class="col-md-3 col-sm-6 pb-70 item-book-hover">
+						                            <div class="col-xs-12 col-md-5">
+						                              <div class="speaker-wrap">
+						                                <img src="img/yellow/book/8/4.jpg" height="auto" width="100%" alt="">
+						                              </div>
+						                            </div>
+						                            <div class="col-xs-12 col-md-7">
+						                                <p class="speaker-name"><!-- Майкл <span>Массвотто</span> --></p>
+						                              <p class="speaker-desc">Анатомический атлас височно-нижнечелюстного сустава</p> 
+						                              <button class="button-yellow-text" id="book-112" data-toggle="modal" data-target="#myModal">Получить</button>
+						                            </div>
+						                          </div>
+						                        </div>
+						                              <div class="cleafix"></div>
+
+						                          <div class="container" style="height: auto !important;">
+						                            <div class="row" style="height: auto !important;">
+						                              <div class="col-md-8" style="height: auto !important;">
+						                                <p class="yellow-text-book" >Получите бесплатно полный каталог книг и консультацию нашего специалиста по подбору литературы по вашей специализации</p>
+						                              </div>
+						                              <div class="col-md-4">
+						                                <button class="button-yellow-text" data-toggle="modal" data-target="#myModal" id="seach-book-1123"><span>Подобрать литературу</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img/yellow/arr-right.png" height="14" width="20" alt=""></button>
+						                              </div>
+						                            </div>
+						                          </div>
+
+						                          <div class="cleafix"></div>
+						                          <div class="hidden-sm hidden-xs" style="max-width: 100%;margin: 0 auto;">
+						                          	<div id="" class="review-carousel owl-book">
+						                              	<div class="row">
+															<div class="col-md-5 padding-null pl0 min-226">
+																<div class="event-body">
+																	<img src="img/blue/vertical.png" class="vertical" height="172" width="2" alt="">
+																	<p class="event-name">Пластическая хирургия на мягких тканях  полости рта в эстетической значимой зоне: устаренение десневых дефектов в области зубов и имплататов</p>
+																	<p class="event-n">Джованни Зукели</p>
+																	<p class="event-date">10 апреля 2016</p>
+																	<p class="event-place">Алматы, Казахстан</p>
+																</div>
+
+															</div>
+															<div class="col-md-7 bgf6f6f6 pr0 min-226">
+																<div class="right-text">
+																	<p>Повышения требований пациентов к эстетическим результатам стоматологического лечения привело к необходимости совершенствования пластических хирургических вмешательств на мягких тканях полости рта. В ходе курса слушатели познакомятся с  поэтапным протоколом найболее эффективных метод устранения  рецессий, узнают об особенностях устранения рецессий в области зубов и о краткосрочном и долгосрочном исходе  обсуцждаемых хирургических вмешательств. Курсантам предоставляються все необходимые материалы и оборудование</p>
+																	<div class="button-event-more"><button class="event-button" data-toggle="modal" data-target="#myModal" id="event4"><span>Узнать детали и стоимость</span>&nbsp;&nbsp;&nbsp;<img src="img/blue/arright.png" height="14" width="20" alt=""></button></div>
+																</div>
+															</div>
+														</div>
+														<div class="row">
+															<div class="col-md-5 padding-null pl0 min-226">
+																<div class="event-body">
+																	<img src="img/blue/vertical.png" class="vertical" height="172" width="2" alt="">
+																	<p class="event-name">Пластическая хирургия на мягких тканях  полости рта в эстетической значимой зоне: устаренение десневых дефектов в области зубов и имплататов</p>
+																	<p class="event-n">Джованни Зукели</p>
+																	<p class="event-date">10 апреля 2016</p>
+																	<p class="event-place">Алматы, Казахстан</p>
+																</div>
+
+															</div>
+															<div class="col-md-7 bgf6f6f6 pr0 min-226">
+																<div class="right-text">
+																	<p>Повышения требований пациентов к эстетическим результатам стоматологического лечения привело к необходимости совершенствования пластических хирургических вмешательств на мягких тканях полости рта. В ходе курса слушатели познакомятся с  поэтапным протоколом найболее эффективных метод устранения  рецессий, узнают об особенностях устранения рецессий в области зубов и о краткосрочном и долгосрочном исходе  обсуцждаемых хирургических вмешательств. Курсантам предоставляються все необходимые материалы и оборудование</p>
+																	<div class="button-event-more"><button class="event-button" data-toggle="modal" data-target="#myModal" id="event4"><span>Узнать детали и стоимость</span>&nbsp;&nbsp;&nbsp;<img src="img/blue/arright.png" height="14" width="20" alt=""></button></div>
+																</div>
+															</div>
+														</div>
+						                            </div>
+						                          </div>
+						                          <br>
+						                      </div>
+
+						                      <!-- Периодические издания -->
+
+												<div>
+												<div class="row">
+						                          <div class="col-md-3 col-sm-6 pb-70 item-book-hover">
+						                            <div class="col-xs-12 col-md-5">
+						                              <div class="speaker-wrap">
+						                                <img src="img/11/1.jpg" height="auto" width="100%" alt="">
+						                              </div>
+						                            </div>
+						                            <div class="col-xs-12 col-md-7">
+						                                <p class="speaker-name"><!-- Майкл <span>Ньюман</span> --></p>
+						                              <p class="speaker-desc">Зубные имплантаты</p> 
+						                              <button class="button-yellow-text" id="book-111" data-toggle="modal" data-target="#myModal">Получить</button>
+						                            </div>
+						                          </div>
+						                          <div class="col-md-3 col-sm-6 pb-70 item-book-hover">
+						                            <div class="col-xs-12 col-md-5">
+						                              <div class="speaker-wrap">
+						                                <img src="img/11/2.jpg" height="auto" width="100%" alt="">
+						                              </div>
+						                            </div>
+						                            <div class="col-xs-12 col-md-7">
+						                                <p class="speaker-name"><!-- Майкл <span>Массвотто</span> --></p>
+						                              <p class="speaker-desc">Парадонтология и реставрационная стоматология</p> 
+						                              <button class="button-yellow-text" id="book-112" data-toggle="modal" data-target="#myModal">Получить</button>
+						                            </div>
+						                          </div>
+						                          <div class="col-md-3 col-sm-6 pb-70 item-book-hover">
+						                            <div class="col-xs-12 col-md-5">
+						                              <div class="speaker-wrap">
+						                                <img src="img/11/5.jpg" height="auto" width="100%" alt="">
+						                              </div>
+						                            </div>
+						                            <div class="col-xs-12 col-md-7">
+						                                <p class="speaker-name"><!-- Ральф <span>Реддисон</span> --></p>
+						                              <p class="speaker-desc">QDT 2011</p> 
+						                              <button class="button-yellow-text" id="book-112" data-toggle="modal" data-target="#myModal">Получить</button>
+						                            </div>
+						                          </div>
+						                          <div class="col-md-3 col-sm-6 pb-70 item-book-hover">
+						                            <div class="col-xs-12 col-md-5">
+						                              <div class="speaker-wrap">
+						                                <img src="img/11/6.jpg" height="auto" width="100%" alt="">
+						                              </div>
+						                            </div>
+						                            <div class="col-xs-12 col-md-7">
+						                                <p class="speaker-name"><!-- Майкл <span>Массвотто</span> --></p>
+						                              <p class="speaker-desc">QDT 2012</p> 
+						                              <button class="button-yellow-text" id="book-112" data-toggle="modal" data-target="#myModal">Получить</button>
+						                            </div>
+						                          </div>
+						                        </div>
+						                              <div class="cleafix"></div>
+
+						                          <div class="container" style="height: auto !important;">
+						                            <div class="row" style="height: auto !important;">
+						                              <div class="col-md-8" style="height: auto !important;">
+						                                <p class="yellow-text-book" >Получите бесплатно полный каталог книг и консультацию нашего специалиста по подбору литературы по вашей специализации</p>
+						                              </div>
+						                              <div class="col-md-4">
+						                                <button class="button-yellow-text" data-toggle="modal" data-target="#myModal" id="seach-book-1123"><span>Подобрать литературу</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img/yellow/arr-right.png" height="14" width="20" alt=""></button>
+						                              </div>
+						                            </div>
+						                          </div>
+
+						                          <div class="cleafix"></div>
+						                          <div class="hidden-sm hidden-xs" style="max-width: 940px;margin: 0 auto;">
+						                          	<div  class="review-carousel owl-book">
+						                              <div class="item text-center">
+						                                <img src="img/11/1.jpg" height="" width="100px" alt="">
+						                                <p>Зубные имплантаты</p>
+						                                <!-- <span>Майкл <span>Ньюман</span></span> -->
+						                              </div>
+						                              <div class="item text-center">
+						                                <img src="img/11/2.jpg" height="" width="100px" alt="">
+						                                <p>Парадонтология и реставрационная стоматология</p>
+						                                <!-- <span>Майкл <span>Массвотто</span></span> -->
+						                              </div>
+						                              <div class="item text-center">
+						                                <img src="img/11/5.jpg" height="" width="100px" alt="">
+						                                <p>QDT 2011</p>
+						                                <!-- <span>Ральф <span>Реддисон</span></span> -->
+						                              </div>
+						                              <div class="item text-center">
+						                                <img src="img/11/6.jpg" height="" width="100px" alt="">
+						                                <p>QDT 2012</p>
+						                                <!-- <span>Даниэле <span>Манфредини</span></span> -->
+						                              </div>
+						                              <div class="item text-center">
+						                                <img src="img/11/7.jpg" height="" width="100px" alt="">
+						                                <p>QDT 2013</p>
+						                                <!-- <span>Вольфганг <span>Йост</span></span> -->
+						                              </div>
+						                              <div class="item text-center">
+						                                <img src="img/11/8.jpg" height="" width="100px" alt="">
+						                                <p>JADA</p>
+						                                <!-- <span>Роберт <span>Янгеон</span></span> -->
+						                              </div>
+						                              <div class="item text-center">
+						                                <img src="img/11/9.jpg" height="" width="100px" alt="">
+						                                <p>JADA</p>
+						                                <!-- <span>Роберт <span>Янгеон</span></span> -->
+						                              </div>
+						                              <div class="item text-center">
+						                                <img src="img/11/10.jpg" height="" width="100px" alt="">
+						                                <p>QDT 2014</p>
+						                                <!-- <span>Вольфганг <span>Йост</span></span> -->
+						                              </div>
+						                              <div class="item text-center">
+						                                <img src="img/11/11.jpg" height="" width="100px" alt="">
+						                                <p>Заболевания пародонта</p>
+						                                <!-- <span>Вольфганг <span>Йост</span></span> -->
+						                              </div>
+						                              <div class="item text-center">
+						                                <img src="img/11/12.jpg" height="" width="100px" alt="">
+						                                <p>QDT 2015</p>
+						                                <!-- <span>Вольфганг <span>Йост</span></span> -->
+						                              </div>
+						                              <div class="item text-center">
+						                                <img src="img/11/13.jpg" height="" width="100px" alt="">
+						                                <p>PRD 2015</p>
+						                                <!-- <span>Вольфганг <span>Йост</span></span> -->
+						                              </div>
+						                              <div class="item text-center">
+						                                <img src="img/11/14.jpg" height="" width="100px" alt="">
+						                                <p>Ответы на Ваши вопросы о зубных импантатах</p>
+						                                <!-- <span>Вольфганг <span>Йост</span></span> -->
+						                              </div>
+						                              <div class="item text-center">
+						                                <img src="img/11/15.jpg" height="" width="100px" alt="">
+						                                <p>PERIO IQ</p>
+						                                <!-- <span>Вольфганг <span>Йост</span></span> -->
+						                              </div>
+						                              <div class="item text-center">
+						                                <img src="img/11/16.jpg" height="" width="100px" alt="">
+						                                <p>PROLAB IQ</p>
+						                                <!-- <span>Вольфганг <span>Йост</span></span> -->
+						                              </div>
+						                              <div class="item text-center">
+						                                <img src="img/11/17.jpg" height="" width="100px" alt="">
+						                                <p>Ortho IQ</p>
+						                                <!-- <span>Вольфганг <span>Йост</span></span> -->
+						                              </div>
+						                              <div class="item text-center">
+						                                <img src="img/11/18.jpg" height="" width="100px" alt="">
+						                                <p>Dental IQ</p>
+						                                <!-- <span>Вольфганг <span>Йост</span></span> -->
+						                              </div>
+						                            </div>
+						                          </div>
+						                          <br>
+						                      </div>
+
+
+
+						                  </div>
+						              </div>
+						            </div>
+						          </div>
+						        </div>
+						      </div>
+						    </section>
+
+						    <section class="footer-form">
+						       <div class="container">
+						         <div class="row">
+						           <div class="col-md-12">
+						             <h3 class="title">Прокачайте свой профессионализм</h3>
+						             <p class="subtitle">и предлагайте своим клиентам<br>лучшее качество, новые услуги и сервис</p>
+						             <div class="line-title"></div>
+						           </div>
+						         </div>
+						         <div class="row pt-65">
+						           <div class="col-md-5 footer-left-text">
+						             <p>Мы готовы проконсультировать вас по телефону, узнать больше о вашей специализации и порекомендовать именно те книги, которые будут наиболее полезны вам прямо сейчас.</p><br>
+						             <p>Оставьте свои контакты в форме и наш специалист свяжется с вами в течение нескольких часов.</p>
+						           </div>
+						           <div class="col-md-7">
+						             <div class="contact-form">
+						             <form action="javascript:void(0);" method="post" id="footer-yellow">
+						               <input type="text" class="inpt inpt-1" required name="name" placeholder="Ваше имя">
+						               <input type="text" class="inpt inpt-2" required name="phone" placeholder="Ваш телефон">
+						               <input type="email" class="inpt inpt-3" required name="email" placeholder="Ваш e-mail">
+
+	               						<input type="hidden" id="bookname" value="footer-form">
+						               <button type="submit" class="inpt-4 pull-right" id="consult-me-5"><span>проконсультируйте меня</span>&nbsp;&nbsp;&nbsp;<img src="img/yellow/arr-right.png" height="14" width="20" alt=""></button>
+						               </form>
+						             </div>
+						           </div>
+						         </div>
+						       </div>
+						     </section> 
+
+						    <footer>
+						       <div class="container">
+						         <div class="row">
+						           <div class="col-md-2 col-xs-5">
+						             <a href="#">
+						               <img src="img/footer-logo.png" height="40" width="117" alt="">
+						             </a>
+						           </div>
+						           <div class="col-md-2 col-md-offset-8  col-xs-7 text-right">
+						             <p class="footer-phone"><img src="img/phone-left.png" height="20" width="17" alt="">&nbsp;&nbsp;&nbsp;(063) 829-97-05</p>
+						           </div>
+						         </div>
+						       </div>
+						     </footer>
+						</div>
+
+
+
+
+
+						
+					</section>
+				</div>
+			</div><!-- /container -->
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <section class="footer-form">
+	       <div class="container-fluid" style="padding: 0;">
+	         <div class="row">
+	           <div class="col-md-12">
+	             <h3 class="title text-center"><b>Заказать книгу</b></h3>
+	           </div>
+	         </div>
+	         <div class="row pt-65">
+	           <div class="col-md-12">
+	             <div class="contact-form">
+						             <form action="javascript:void(0);" method="post" id="modal-form">
+	               <input type="text" class="inpt inpt-1" required name="name" placeholder="Ваше имя">
+	               <input type="text" class="inpt inpt-2" required name="phone" placeholder="Ваш телефон">
+	               <input type="email" class="inpt inpt-3" required name="email" placeholder="Ваш e-mail">
+	               <input type="hidden" id="bookname">
+        		<button type="button" class="close pull-left" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">ЗАКРЫТЬ</span></button>
+	               <button type="submit" class="inpt-4 pull-right" id="send-modal-form"><span>проконсультируйте меня</span>&nbsp;&nbsp;&nbsp;<img src="img/yellow/arr-right.png" height="14" width="20" alt=""></button>
+	               </form>
+	             </div>
+	           </div>
+	         </div>
+	       </div>
+	     </section> 
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModalbook" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <section class="footer-form">
+	       <div class="container-fluid" style="padding: 0;">
+	         <div class="row">
+	           <div class="col-md-12">
+	             <h3 class="title"><b>Заказать книгу</b></h3>
+	           </div>
+	         </div>
+	         <div class="row pt-65">
+	           <div class="col-md-12">
+	             <div class="contact-form">
+						             <form action="javascript:void(0);" method="post" id="modal-form">
+	               <input type="text" class="inpt inpt-1" required name="name" placeholder="Ваше имя">
+	               <input type="text" class="inpt inpt-2" required name="phone" placeholder="Ваш телефон">
+	               <input type="email" class="inpt inpt-3" required name="email" placeholder="Ваш e-mail">
+	               <input type="hidden" id="bookname">
+        		<button type="button" class="close pull-left" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">ЗАКРЫТЬ</span></button>
+	               <button type="submit" class="inpt-4 pull-right" id="send-modal-form"><span>проконсультируйте меня</span>&nbsp;&nbsp;&nbsp;<img src="img/blue/arr-right.png" height="14" width="20" alt=""></button>
+	               </form>
+	             </div>
+	           </div>
+	         </div>
+	       </div>
+	     </section> 
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModalCat" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content"> 
+    	<div class="modal-header text-right">
+    		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> 
+    	</div>
+        
+ 
+      <div class="modal-body">
+        <div class="container">
+        	<div class="row">
+        		<div class="col-sm-6 col-md-3">
+        			<img src="img/yellow/book.jpg" width="100%" alt="">
+        		</div>
+        		<div class="col-sm-6 col-md-9">
+        			<div class="text_right_wrap">
+        				<div class="name">Валерий <span>Каминский</span></div>
+        				<div class="book">НАЗВАНИЕ КНИГИ</div>
+        				<div class="year">2016</div>
+        				<div class="text">Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Вдали от всех живут они в буквенных домах на берегу Семантика большого языкового океана. Маленький ручеек Даль журчит по всей стране и обеспечивает ее всеми необходимыми правилами. Эта парадигматическая страна, в которой жаренные члены предложения залетают прямо в рот. Даже всемогущая пунктуация не имеет власти над рыбными текстами, ведущими безорфографичный образ жизни. Однажды одна маленькая строчка рыбного текста по имени Lorem ipsum решила выйти в большой мир грамматики. Великий Оксмокс предупреждал ее о злых запятых, диких знаках вопроса и коварных точках с запятой, но текст не дал сбить себя с толку. Он собрал семь своих заглавных букв, подпоясал инициал за пояс и пустился в дорогу. Взобравшись на первую вершину курсивных гор, бросил он последний взгляд назад, на силуэт своего родного города Буквоград, на заголовок деревни Алфавит и на подзаголовок своего переулка Строчка. Грустный реторический вопрос скатился по его щеке и он продолжил свой путь. По дороге встретил текст рукопись. Она предупредила его: «В моей стране все переписывается по несколько раз. Единственное, что от меня осталось, это приставка «и». Возвращайся ты лучше в свою безопасную страну». Не послушавшись рукописи, наш текст продолжил свой путь. Вскоре ему повстречался коварный составитель</div>
+        				<div>
+							<button type="submit" class="inpt-4" id=""><span>Получить книгу</span>&nbsp;&nbsp;&nbsp;<img src="img/yellow/arr-right.png" height="14" width="20" alt=""></button>
+						</div>
+        			</div>
+        		</div>
+        	</div>
+        </div>
+      </div> 
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<script src="js/modernizr.js"></script>
+			<script src="js/dragdealer.js"></script>
+			<script src="js/classie.js"></script>
+			<script src="js/dragslideshow.js"></script>
+			<script src="owl.carousel/owl-carousel/owl.carousel.js"></script>
+			<script src="js/bootstrap.min.js"></script>
+			<script src="js/jquery.maskedinput.js"></script>
+			<script src="js/main.js"></script>
+			<script src="js/wow.min.js"></script>
+			<script>new WOW().init();</script>
+
+
+			<script>
+			jQuery(function($){
+			   $(".inpt-2").each(function(index, el) {
+			   	$(this).mask("(999) 999-9999");
+			   });
+			});
+			(function() {
+
+				var overlay = document.getElementById( 'overlay' ),
+					overlayClose = overlay.querySelector( 'button' ),
+					header = document.getElementById( 'header' )
+					switchBtnn = header.querySelector( 'button.slider-switch' ),
+					toggleBtnn = function() {
+						if( slideshow.isFullscreen ) {
+							classie.add( switchBtnn, 'view-maxi' );
+						}
+						else {
+							classie.remove( switchBtnn, 'view-maxi' );
+						}
+					},
+					toggleCtrls = function() {
+						if( !slideshow.isContent ) {
+							classie.add( header, 'hide' );
+						}
+					},
+					toggleCompleteCtrls = function() {
+						if( !slideshow.isContent ) {
+							classie.remove( header, 'hide' );
+						}
+					},
+					slideshow = new DragSlideshow( document.getElementById( 'slideshow' ), { 
+						// toggle between fullscreen and minimized slideshow
+						onToggle : toggleBtnn,
+						// toggle the main image and the content view
+						onToggleContent : toggleCtrls,
+						// toggle the main image and the content view (triggered after the animation ends)
+						onToggleContentComplete : toggleCompleteCtrls
+					}),
+
+					toggleSlideshow = function() {
+						slideshow.toggle();
+						toggleBtnn();
+					},
+					closeOverlay = function() {
+						classie.add( overlay, 'hide' );
+					};
+
+				// toggle between fullscreen and small slideshow
+				switchBtnn.addEventListener( 'click', toggleSlideshow );
+				// close overlay
+				//overlayClose.addEventListener( 'click', closeOverlay );
+
+			}());
+		</script>
+			<script>
+				$(document).ready(function() {
+					$("#review").owlCarousel({
+						singleItem: true,
+						navigation: true,
+						autoHeight: true,
+						pagination: false
+					});
+					$(".review-item-page").owlCarousel({
+						singleItem: true,
+						navigation: true,
+						autoHeight: true,
+						pagination: false
+					});
+
+					// Change Burmak Yuliya
+					$('#site-nav a').click(function(){
+						var id = $(this).attr('id').replace('nav-item-','');
+						slideshow.dd.setStep(id);
+					});
+				});
+			      $(document).ready(function() {
+			        $("#owl-book, .owl-book").owlCarousel({
+			              items : 1,
+			              navigation: true,
+			              pagination: false,
+			              autoPlay: true
+			            });
+			      });
+			</script>
+		<style>
+			* {
+				word-wrap: normal !important;
+			}
+		</style>
+		</body>
+		</html>

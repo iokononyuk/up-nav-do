@@ -1,0 +1,42 @@
+@media (max-width: 480px) {
+	#one .pt-64,#three .pt-64, #three .pt-51, #four .right, #two .right {
+		position: static !important;
+		float: none !important;
+	}
+	#one .pt-51 {
+		position: static !important;
+		float: none !important;
+		
+	}
+	#three .right h3, #four .right h3, #two .right h3, #one .right h3 {
+		font-size: 30px !important;
+	}
+	.button-slider {
+		font-size: 15px !important;
+		padding: 10px !important;
+	}
+	.slide div.container{
+		padding-top: 40%;
+	}
+	.event .event-button {
+		font-size: 16px !important;
+		padding: 10px !important;
+	}
+	.footer-form .inpt-4 {
+		padding: 15px !important;
+		font-size: 16px !important;
+	}
+	div.content img {
+		max-width: 100%;
+		height: auto;
+	}
+}
+@media (min-width: 480px) and (max-width: 768px) {
+
+}
+@media (min-width: 768px) and (max-width: 1200px) {
+
+}
+@media (min-width: 1100px) and (max-width: 1600px) {
+
+}

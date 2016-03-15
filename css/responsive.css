@@ -1,0 +1,136 @@
+@media (max-width: 480px) {
+	#one .pt-64,#three .pt-64, #three .pt-51, #four .right, #two .right {
+		position: static !important;
+		float: none !important;
+	}
+	#one .pt-51 {
+		position: static !important;
+		float: none !important;
+		
+	}
+	#three .right h3, #four .right h3, #two .right h3, #one .right h3 {
+		font-size: 26px !important;
+	}
+	.button-slider {
+		font-size: 15px !important;
+		padding: 10px !important;
+	}
+	.slide div.container{
+		padding-top: 40%;
+	}
+	.event .event-button {
+		font-size: 16px !important;
+		padding: 10px !important;
+	}
+	.footer-form .inpt-4 {
+		padding: 15px !important;
+		font-size: 16px !important;
+	}
+	div.content img {
+		max-width: 100%;
+		height: auto;
+	}
+	.navbar {
+    	background: #fff !important;
+    	padding-top: 0 !important;
+    	padding: 3px 0 !important;
+    	transition: .6s;
+	}
+	.navbar-brand {
+		padding: 5px 15px !important;
+	}
+	#logo path{
+		fill: #2d2b2b !important;
+	}
+	.navbar-nav > li > a {
+		color: #2b2b2b !important;
+	}
+	.event .line-title {
+		margin-bottom: 25px;
+	}
+	#logo polygon {
+    fill: #2b2b2b;
+}
+.item-book-hover .button-yellow-text {
+	opacity: 1 !important;
+}
+#yellow .yellow-text-book {
+	padding-bottom: 15px !important;
+}
+#yellow .button-yellow-text {
+	margin-top: 0;
+}
+
+.img-wrap img {
+	height: 100% !important;
+	width: auto !important;
+}
+#yellow .speakers .speaker-wrap {
+	text-align: right;
+}
+#yellow .speakers .speaker-wrap img {
+    width: 60%;
+}
+#yellow .speakers .speaker-desc {
+	text-align: right;
+	padding-top: 0 !important;
+}
+#yellow .button-yellow-text {
+	float: right;
+	margin-bottom: 35px;
+}
+
+#yellow .button-yellow-text {
+	margin: 0 !important; 
+}
+#orange {
+	padding-top: 0 !important;
+}
+}
+@media (min-width: 480px) and (max-width: 768px) {
+#orange {
+	padding-top: 0 !important;
+}
+	#yellow .button-yellow-text {
+		margin: 0 !important; 
+	}
+#yellow .speakers .speaker-wrap img {
+    width: 60%;
+}
+#yellow .speakers .speaker-desc {
+	text-align: right;
+	padding-top: 0 !important;
+}
+#yellow .speakers .speaker-wrap {
+	text-align: right;
+}
+.img-wrap img {
+	height: 100% !important;
+	width: auto !important;
+}
+#yellow .button-yellow-text {
+	float: right;
+	margin-bottom: 35px;
+}
+
+
+.item-book-hover .button-yellow-text {
+	opacity: 1 !important;
+}
+#yellow .yellow-text-book {
+	padding-bottom: 15px !important;
+}
+#yellow .button-yellow-text {
+	margin-top: 0;
+}
+
+}
+@media (min-width: 768px) and (max-width: 1200px) {
+
+}
+@media (min-width: 1100px) and (max-width: 1600px) {
+
+}
+.tabs > div {
+	z-index: 9999999;
+}

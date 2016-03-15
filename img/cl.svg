@@ -1,0 +1,7 @@
+<svg id="svg" width="32" height="32" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+						<g>
+							<path id="svg1" fill="none" stroke="#fff" stroke-width="5" stroke-linejoin="bevel" d="M 12.972944,50.936147 51.027056,12.882035" style="stroke: rgb(255, 255, 255);"></path>
+							<path id="svg2" fill="none" stroke="#fff" stroke-width="5" stroke-linejoin="bevel" d="m 5.1969746,31.909063 53.8166424,0" style="stroke: rgb(255, 255, 255); display: none;"></path>
+							<path id="svg3" fill="none" stroke="#fff" stroke-width="5" stroke-linejoin="bevel" d="M 12.972944,12.882035 51.027056,50.936147" style="stroke: rgb(255, 255, 255);"></path>
+						</g>
+					</svg>
